@@ -3,7 +3,7 @@ const juegos = [
         id: "ck3",
         titulo: "Crusader Kings III",
         descripcion: "Estrategia dinástica medieval.",
-        imagen: "Imagenes-juegos/Crusadersking3/imagen-juego-1.png",
+        imagen: "Imagenes-juegos/Crusadersking3/Imagen-juego-1.png",
         tipo: "actual"
     },
     {
