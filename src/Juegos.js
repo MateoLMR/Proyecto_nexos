@@ -3,63 +3,63 @@ const juegos = [
         id: "ck3",
         titulo: "Crusader Kings III",
         descripcion: "Estrategia dinástica medieval.",
-        imagen: "./Imagenes-juegos/Crusadersking3/imagen-juego-1.png",
+        imagen: "Imagenes-juegos/Crusadersking3/imagen-juego-1.png",
         tipo: "actual"
     },
     {
         id: "cv1",
         titulo: "Civilization 1991",
         descripcion: "Estrategia 4x que fundo el genero.",
-        imagen: "./Imagenes/civilization1991.png",
+        imagen: "Imagenes/civilization1991.png",
         tipo: "antiguo"
     },
     {
         id: "wt2",
         titulo: "Warcraft II: Tides of Darkness",
         descripcion: "Solidificó el RTS con fantasía épica",
-        imagen: "./Imagenes/warcraft2.png",
+        imagen: "Imagenes/warcraft2.png",
         tipo: "antiguo"
     },
     {
         id: "hm3",
         titulo: "Heroes of Might and Magic III",
         descripcion: "Estrategia por turnos y combate táctico de fantasía. Construye tu castillo y lidera héroes.",
-        imagen: "./Imagenes/heroes of magic.png",
+        imagen: "Imagenes/heroes of magic.png",
         tipo: "antiguo"
     },
     {
         id: "ag4",
         titulo: "Age of Empires IV",
         descripcion: "Estrategia en tiempo real histórica. Lidera civilizaciones a través de eras épicas.",
-        imagen: "./Imagenes/ag.png",
+        imagen: "Imagenes/ag.png",
         tipo: "actual"
     },
     {
         id: "tw3",
         titulo: "Total War: Warhamer III",
         descripcion: "Estrategia masiva por turnos con batallas tácticas colosales en tiempo real.",
-        imagen: "./Imagenes/tw.png",
+        imagen: "Imagenes/tw.png",
         tipo: "actual"
     },
     {
         id: "stB",
         titulo: "Starcraft: Brood War",
         descripcion: "El RTS competitivo por excelencia. Construye tu ejército y domina las microtácticas de batalla.",
-        imagen: "./Imagenes/st.png",
+        imagen: "Imagenes/st.png",
         tipo: "antiguo"
     },
     {
         id: "mnl",
         titulo: "Manor Lords",
         descripcion: "Constructor de ciudades medievales con batallas tácticas masivas.",
-        imagen: "./Imagenes/mnl.png",
+        imagen: "Imagenes/mnl.png",
         tipo: "actual"
     },
     {
         id: "xc2",
         titulo: "Xcom 2",
         descripcion: "Líder del género táctico por turnos. Combate alienígena por escuadrones.",
-        imagen: "./Imagenes/xc2.png",
+        imagen: "Imagenes/xc2.png",
         tipo: "antiguo"
     },
 ]
