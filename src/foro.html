@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexos | Foro</title>
+    <link rel="icon" href="imagenes/logo.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<header class=" isolate overflow-hidden bg-purple-950 py-6 sm:py-0 border-b border-fuchsia-300/30 sticky top-0 z-50">
+    <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 relative z-10">
+        <div class="flex lg:flex-2">
+            <a href="../index.html" class="-m-1.5 p-1.5 flex items-center gap-2">
+                <span class="sr-only">Nexos</span>
+                <img src="imagenes/logo.png" style="height: 45px; width: 45px;" class="h-10 w-10" />
+                <span class="text-2x2 font-semibold text-fuchsia-300">Nexos</span>
+            </a>
+        </div>
+        <div class="flex flex-1 ml-2 justify-end items-center gap-10 lg:gap-x-12 ">
+            <a href="../index.html" class="text-sm font-semibold leading-6 text-white" style="font-size: 16px;">Inicio</a>
+            <a href="Juegos.html" style="font-size: 16px;" class="text-sm font-semibold leading-6 text-white">Juegos</a>
+            <a href="comparar.html" style="font-size: 16px;"class="text-sm font-semibold leading-6 text-white">Comparacion</a>
+            <a href="foro.html" style="font-size: 16px;" class="text-sm font-semibold leading-6 text-white">Foro</a>
+        </div>
+    </nav>
+</header>
+
+<body class="bg-gray-900 overflow-x-hidden min-h-screen">
+    <div class="bg-gray-900 py-12 sm:py-18 overflow-hidden min-h-screen">
+        <div class="mx-auto max-w-4xl px-6 lg:px-8">
+            <h2 class="text-5xl font-bold tracking-tight text-white sm:text-5x1 text-center mb-14">
+                Comparte Experiencias y Consejos
+            </h2>
+
+            <div class="bg-gray-800 rounded-xl p-6 shadow-2xl mb-12">
+                <div class="flex space-x-4">
+                    <img class="h-10 w-10 rounded-full object-cover" src="imagenes/usuario.png" alt="User Avatar" />
+                    <div class="flex-1">
+                        <form id="comment-form" onsubmit="postComment(event, null)" class="relative">
+                            <div
+                                class="overflow-hidden rounded-lg border border-gray-700 shadow-sm focus-within:border-fuchsia-200 focus-within:ring-1 focus-within:ring-fuchsia-500">
+                                <textarea rows="3" name="commentText" id="commentText"
+                                    class="block w-full resize-none border-0 bg-gray-700 py-3 px-4 text-white placeholder-gray-400 sm:text-sm caret-fuchsia-500 focus:outline-none focus:ring-0"
+                                    placeholder="Escribe tu experiencia, pregunta o consejo..." required
+                                    onkeydown="handleEnter(event)"></textarea>
+                            </div>
+                            <div class="flex items-center justify-end pt-2">
+                                <button type="submit"
+                                    class="rounded-md bg-fuchsia-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-fuchsia-500 transition-colors">
+                                    Post
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="comments-container" class="mt-12 space-y-8">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'forumComments';
+
+        function getComments() {
+            const comments = localStorage.getItem(STORAGE_KEY);
+            return comments ? JSON.parse(comments) : [];
+        }
+
+        function saveComments(comments) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+        }
+
+        function formatTimeAgo(timestamp) {
+            const seconds = Math.floor((new Date() - new Date(timestamp)) / 1000);
+            let interval = seconds / 31536000;
+            if (interval > 1) return Math.floor(interval) + " años";
+            interval = seconds / 2592000;
+            if (interval > 1) return Math.floor(interval) + " meses";
+            interval = seconds / 86400;
+            if (interval > 1) return Math.floor(interval) + " días";
+            interval = seconds / 3600;
+            if (interval > 1) return Math.floor(interval) + " horas";
+            interval = seconds / 60;
+            if (interval > 1) return Math.floor(interval) + " minutos";
+            return Math.floor(seconds) + " segundos";
+        }
+
+        /**
+         * NUEVO: Maneja el evento 'Enter' en el textarea principal.
+         * Si se presiona Enter (sin Shift), envía el formulario.
+         */
+        function handleEnter(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                // Prevenir la nueva línea
+                event.preventDefault();
+
+                // Encontrar el formulario más cercano al textarea donde se presionó Enter
+                const form = event.target.closest('form');
+
+                if (form) {
+                    // Enviar ese formulario específico
+                    form.requestSubmit();
+                }
+            }
+        }
+        /**
+         * ACTUALIZADO: postComment ahora acepta un 'parentId'.
+         * Maneja tanto los comentarios raíz como las respuestas.
+         */
+        function postComment(event, parentId = null) {
+            event.preventDefault();
+
+            let commentTextarea;
+            let newText;
+
+            if (parentId) {
+                // Es una respuesta (usa el textarea dinámico)
+                commentTextarea = event.target.querySelector('textarea[name="replyText"]');
+            } else {
+                // Es un comentario raíz (usa el textarea principal)
+                commentTextarea = document.getElementById('commentText');
+            }
+
+            newText = commentTextarea.value.trim();
+            if (newText === '') return;
+
+            const comments = getComments();
+
+            // El nombre de usuario se puede hacer dinámico más adelante si implementas login
+            const newUser = {
+                id: Date.now().toString(),
+                username: parentId ? "Usuario Nexos" : "Usuario Nexos",
+                avatar: "imagenes/usuario.png",
+                text: newText,
+                timestamp: new Date().toISOString(),
+                reactions: { like: 0, dislike: 0 },
+                parentId: parentId // La clave para anidar
+            };
+
+            comments.push(newUser);
+            saveComments(comments);
+
+            commentTextarea.value = '';
+
+            // Si era un formulario de respuesta, se elimina después de enviar
+            if (parentId) {
+                event.target.remove();
+            }
+
+            renderComments(); // Vuelve a dibujar todos los comentarios
+        }
+
+        /**
+         * NUEVO: Muestra un formulario de respuesta dinámico debajo de un comentario.
+         */
+        function showReplyForm(parentId) {
+            // ... (el código para eliminar otros formularios va aquí) ...
+            const existingForm = document.getElementById('reply-form-dynamic');
+            if (existingForm) {
+                existingForm.remove();
+            }
+
+            const parentComment = document.querySelector(`[data-id="${parentId}"] > .flex-1`);
+            if (!parentComment) return;
+
+            // Crea el HTML del formulario de respuesta
+            const formHTML = `
+        <form id="reply-form-dynamic" onsubmit="postComment(event, '${parentId}')" class="relative mt-4">
+            <div class="overflow-hidden rounded-lg border border-gray-700 focus-within:border-fuchsia-300">
+                
+                <textarea rows="2" name="replyText" 
+                    class="block w-full resize-none border-0 bg-gray-700 p-2 text-white placeholder-gray-400 sm:text-sm caret-fuchsia-500 focus:outline-none focus:ring-0" 
+                    placeholder="Escribe tu respuesta... " 
+                    required 
+                    onkeydown="handleEnter(event)"></textarea>
+
+            </div>
+            <div class="flex justify-end space-x-2 pt-2">
+                <button type="button" onclick="this.closest('form').remove()" class="rounded-md bg-gray-600 px-3 py-1 text-sm font-semibold text-white hover:bg-gray-500 transition-colors">
+                    Cancelar
+                </button>
+                <button type="submit" class="rounded-md bg-fuchsia-500 px-3 py-1 text-sm font-semibold text-white hover:bg-fuchsia-400 transition-colors">
+                    Responder
+                </button>
+            </div>
+        </form>
+    `;
+
+            parentComment.insertAdjacentHTML('beforeend', formHTML);
+            parentComment.querySelector('textarea[name="replyText"]').focus();
+        }
+
+
+        /**
+         * ACTUALIZADO: renderComments ahora construye un árbol
+         * para mostrar los comentarios anidados.
+         */
+        function renderComments() {
+            const container = document.getElementById('comments-container');
+            const comments = getComments();
+
+            if (comments.length === 0) {
+                container.innerHTML = `<p class="text-center text-fuchsia-300/70 text-lg">Sé el primero en publicar un consejo o experiencia.</p>`;
+                return;
+            }
+
+            // 1. Crear un mapa y un array de árbol
+            const commentsMap = {};
+            comments.forEach(comment => {
+                comment.replies = []; // Prepara un array para las respuestas
+                commentsMap[comment.id] = comment;
+            });
+
+            // 2. Construir el árbol en memoria
+            const commentTree = [];
+            comments.forEach(comment => {
+                if (comment.parentId) {
+                    const parent = commentsMap[comment.parentId];
+                    if (parent) {
+                        parent.replies.push(comment); // Añade la respuesta a su padre
+                    }
+                } else {
+                    commentTree.push(comment); // Es un comentario raíz
+                }
+            });
+
+            // 3. Ordenar comentarios raíz (más recientes primero)
+            commentTree.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+            // 4. Iniciar el renderizado recursivo
+            container.innerHTML = ''; // Limpiar el contenedor
+            commentTree.forEach(comment => {
+                const commentElement = createCommentElement(comment);
+                container.appendChild(commentElement);
+            });
+        }
+
+        /**
+         * NUEVO: Función recursiva que crea el HTML para un comentario
+         * y todas sus respuestas.
+         */
+        function createCommentElement(comment) {
+            const commentDiv = document.createElement('div');
+            commentDiv.className = "flex space-x-4 p-4 bg-gray-800 rounded-xl shadow-lg";
+            commentDiv.setAttribute('data-id', comment.id);
+
+            // Ordena las respuestas de este comentario (más antiguas primero, para leer como un hilo)
+            if (comment.replies && comment.replies.length > 0) {
+                comment.replies.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            }
+
+            commentDiv.innerHTML = `
+        <img class="h-10 w-10 rounded-full object-cover" src="${comment.avatar}" alt="User Avatar" />
+        <div class="flex-1">
+            <div class="flex justify-between items-start">
+                <p class="text-white font-semibold">${comment.username}</p>
+                <span class="text-xs text-gray-500">${formatTimeAgo(comment.timestamp)}</span>
+            </div>
+            <p class="text-sm text-fuchsia-300 mt-1 whitespace-pre-wrap">${comment.text}</p>
+            
+            <div class="flex space-x-4 mt-3 text-gray-500 text-sm">
+                <button onclick="showReplyForm('${comment.id}')" class="hover:text-fuchsia-400 transition-colors">
+                    Responder
+                </button>
+                <button onclick="toggleReaction('${comment.id}', 'like')" class="flex items-center space-x-1 hover:text-fuchsia-400 transition-colors">
+                    <span>👍</span>
+                    <span class="ml-1 text-white">${comment.reactions.like}</span>
+                </button>
+                <button onclick="toggleReaction('${comment.id}', 'dislike')" class="flex items-center space-x-1 hover:text-red-400 transition-colors">
+                    <span>👎</span>
+                    <span class="ml-1 text-white">${comment.reactions.dislike}</span>
+                </button>
+                <button onclick="deleteComment('${comment.id}')" class="hover:text-red-400 transition-colors">
+                    Eliminar
+                </button>
+            </div>
+            <div class="replies-container mt-4 space-y-4 ml-6 border-l-2 border-gray-700 pl-4"></div>
+        </div>
+    `;
+
+            // RECURSIÓN
+            // Si este comentario tiene respuestas, créalas y añádelas al contenedor de respuestas
+            const repliesContainer = commentDiv.querySelector('.replies-container');
+            if (comment.replies && comment.replies.length > 0) {
+                comment.replies.forEach(reply => {
+                    repliesContainer.appendChild(createCommentElement(reply));
+                });
+            }
+
+            return commentDiv;
+        }
+
+
+        //Funciones de Reacción y Eliminación (Actualizadas) 
+        function toggleReaction(id, type) {
+            const comments = getComments();
+            const commentIndex = comments.findIndex(c => c.id === id);
+
+            if (commentIndex !== -1) {
+                comments[commentIndex].reactions[type] += 1;
+                saveComments(comments);
+                renderComments(); // Recarga todo para simplicidad
+            }
+        }
+
+        function deleteComment(id) {
+            if (confirm("¿Estás seguro? Esto eliminará este comentario y todas sus respuestas.")) {
+                let comments = getComments();
+
+                // Crea una lista de todos los IDs a eliminar (el padre + todos los hijos)
+                const idsToDelete = [id];
+                const queue = [id]; // Cola para buscar hijos
+
+                while (queue.length > 0) {
+                    const currentId = queue.shift();
+                    const children = comments.filter(c => c.parentId === currentId);
+                    for (const child of children) {
+                        idsToDelete.push(child.id);
+                        queue.push(child.id); // Añade el hijo a la cola para buscar sus propios hijos
+                    }
+                }
+
+                // Filtra y mantiene solo los comentarios que NO están en la lista de eliminación
+                comments = comments.filter(c => !idsToDelete.includes(c.id));
+
+                saveComments(comments);
+                renderComments();
+            }
+        }
+
+        //Inicialización
+        document.addEventListener('DOMContentLoaded', renderComments);
+    </script>
+</body>
+<footer class="bg-gray-900 border-t border-fuchsia-300/30">
+    <div class="mx-auto max-w-7xl px-6 py-8 sm:px-6 lg:px-8 ">
+        <div class="flex items-center justify-between">
+
+            <p class="text-sm leading-5 text-gray-400">
+                &copy; 2025 Nexos, Inc. All rights reserved.
+            </p>
+
+            <div class="flex items-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <span class="sr-only">Facebook</span>
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.899 7.828 6.837 9.068v-6.666h-2.348v-2.39h2.348V9.356c0-2.327 1.417-3.593 3.49-3.593 1.002 0 1.86.074 2.112.107v2.449h-1.455c-1.127 0-1.346.536-1.346 1.325v1.738h2.698l-.351 2.39h-2.347v6.666C19.101 19.828 22 16.237 22 12c0-5.523-4.477-10-10-10z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <span class="sr-only">Instagram</span>
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M12.274 2.227c2.404 0 2.688.01 3.637.054 1.13.053 1.745.244 2.226.438.563.226.974.473 1.393.892.419.419.666.83.892 1.393.194.481.385 1.096.438 2.226.044.949.054 1.233.054 3.637 0 2.404-.01 2.688-.054 3.637-.053 1.13-.244 1.745-.438 2.226-.226.563-.473.974-.892 1.393-.419.419-.83.666-1.393.892-.481.194-1.096.385-2.226.438-.949.044-1.233.054-3.637.054-2.404 0-2.688-.01-3.637-.054-1.13-.053-1.745-.244-2.226-.438-.563-.226-.974-.473-1.393-.892-.419-.419-.666-.83-.892-1.393-.194-.481-.385-1.096-.438-2.226-.044-.949-.054-1.233-.054-3.637 0-2.404.01-2.688.054-3.637.053-1.13.244-1.745.438-2.226.226-.563.473-.974.892-1.393.419-.419.83-.666 1.393-.892.481-.194 1.096-.385 2.226-.438.949-.044 1.233-.054 3.637-.054zm.12 1.621c-2.368 0-2.67.01-3.606.052-1.077.05-1.65.232-2.023.385-.434.175-.724.364-1.049.688s-.513.615-.688 1.049c-.153.373-.335.946-.385 2.023-.042.936-.052 1.238-.052 3.606s.01 2.67.052 3.606c.05 1.077.232 1.65.385 2.023.175.434.364.724.688 1.049s.615.513 1.049.688c.373.153.946.335 2.023.385.936.042 1.238.052 3.606.052s2.67-.01 3.606-.052c1.077-.05 1.65-.232 2.023-.385.434-.175.724-.364 1.049-.688s.513-.615.688-1.049c.153-.373.335-.946.385-2.023.042-.936.052-1.238.052-3.606s-.01-2.67-.052-3.606c-.05-1.077-.232-1.65-.385-2.023-.175-.434-.364-.724-.688-1.049s-.615-.513-1.049-.688c-.373-.153-.946-.335-2.023-.385-.936-.042-1.238-.052-3.606-.052zM12.12 6.5c-3.033 0-5.5 2.467-5.5 5.5s2.467 5.5 5.5 5.5 5.5-2.467 5.5-5.5-2.467-5.5-5.5-5.5zm0 1.5a4 4 0 110 8 4 4 0 010-8zm5.5-2.812a1 1 0 11-2 0 1 1 0 012 0z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>
