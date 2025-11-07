@@ -5,7 +5,7 @@ const dataJuegos = {
         lanzamiento: 2020,
         plataformas: "PC, PS5, Xbox Series",
         descripcionLarga: "Crusader Kings III te pone al mando de una dinastía medieval. La estrategia aquí no se centra solo en el campo de batalla, sino en la intriga, la diplomacia, los matrimonios y la gestión de tu linaje a lo largo de generaciones.",
-        imagen: "Imagenes-juegos/Crusadersking3/imagen-juego-1.png",
+        imagen: "Imagenes-juegos/Crusadersking3/Imagen-juego-1.png",
         Creador: " Paradox Development Studio",
 
         tiendas: [
@@ -16,9 +16,9 @@ const dataJuegos = {
         ],
 
         galeria: [
-            { tipo: 'video', src: 'Videos-juegos/Crusader Kings III - Gameplay Teaser.mp4', thumb: 'Imagenes-juegos/Crusadersking3/imagen-juego-1.png' },
-            { tipo: 'video', src: 'Videos-juegos/Crusader Kings 3 - Official Story Trailer.mp4', thumb: 'Imagenes-juegos/Crusadersking3/imagen-juego-1.png' },
-            { tipo: 'image', src: 'imagenes-juegos/Crusadersking3/imgck2.png', thumb: 'Imagenes-juegos/Crusadersking3/imgck2.png' },
+            { tipo: 'video', src: 'Videos-juegos/Crusader Kings III - Gameplay Teaser.mp4', thumb: 'Imagenes-juegos/Crusadersking3/Imagen-juego-1.png' },
+            { tipo: 'video', src: 'Videos-juegos/Crusader Kings 3 - Official Story Trailer.mp4', thumb: 'Imagenes-juegos/Crusadersking3/Imagen-juego-1.png' },
+            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/imgck2.png', thumb: 'Imagenes-juegos/Crusadersking3/imgck2.png' },
             { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/imgck3.png', thumb: 'Imagenes-juegos/Crusadersking3/imgck3.png' },
             { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/imgck4.png', thumb: 'Imagenes-juegos/Crusadersking3/imgck4.png' },
             { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/imgck5.png', thumb: 'Imagenes-juegos/Crusadersking3/imgck5.png' },
@@ -84,7 +84,7 @@ const dataJuegos = {
         ],
 
         galeria: [
-            { tipo: 'video', src: 'Videos-juegos/Warcraft 2 intro.mp4', thumb: 'Imagenes/warcraft2.png' },
+            { tipo: 'video', src: 'Videos-juegos/Warcraft 2 Intro.mp4', thumb: 'Imagenes/warcraft2.png' },
             { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt1.png', thumb: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt1.png' },
             { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt2.png', thumb: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt2.png' },
             { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt3.png', thumb: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt3.png' },
