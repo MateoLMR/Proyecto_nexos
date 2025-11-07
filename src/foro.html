@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexos | Foro</title>
-    <link rel="icon" href="imagenes/logo.png" type="image/png">
+    <link rel="icon" href="Imagenes/logo.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
@@ -14,7 +14,7 @@
         <div class="flex lg:flex-2">
             <a href="../index.html" class="-m-1.5 p-1.5 flex items-center gap-2">
                 <span class="sr-only">Nexos</span>
-                <img src="imagenes/logo.png" style="height: 45px; width: 45px;" class="h-10 w-10" />
+                <img src="Imagenes/logo.png" style="height: 45px; width: 45px;" class="h-10 w-10" />
                 <span class="text-2x2 font-semibold text-fuchsia-300">Nexos</span>
             </a>
         </div>
@@ -36,7 +36,7 @@
 
             <div class="bg-gray-800 rounded-xl p-6 shadow-2xl mb-12">
                 <div class="flex space-x-4">
-                    <img class="h-10 w-10 rounded-full object-cover" src="imagenes/usuario.png" alt="User Avatar" />
+                    <img class="h-10 w-10 rounded-full object-cover" src="Imagenes/usuario.png" alt="User Avatar" />
                     <div class="flex-1">
                         <form id="comment-form" onsubmit="postComment(event, null)" class="relative">
                             <div
@@ -134,7 +134,7 @@
             const newUser = {
                 id: Date.now().toString(),
                 username: parentId ? "Usuario Nexos" : "Usuario Nexos",
-                avatar: "imagenes/usuario.png",
+                avatar: "Imagenes/usuario.png",
                 text: newText,
                 timestamp: new Date().toISOString(),
                 reactions: { like: 0, dislike: 0 },
