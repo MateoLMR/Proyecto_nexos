@@ -66,21 +66,16 @@ const juegos = [
 
 let categoriaActiva = 'todos';
 
-function parsePriceToUSD(priceText) {
-    if (!priceText || priceText.trim() === ' ' || priceText.includes('No listado')) return Infinity;
-    let numericString = priceText.replace(/[^0-9.,€US]/g, '').trim();
-    let value;
-    if (numericString.includes('COP')) {
-        value = parseFloat(numericString.replace(/COP/g, '').replace(/\./g, '')) / 4500;
-    } else {
-        value = parseFloat(numericString.replace(/€|US/g, '').replace(',', '.'));
-    }
-
-    return value || Infinity;
+function parsePriceToNumber(priceText) {
+    if (typeof priceText === 'undefined' || priceText.trim() === ' ' || priceText.includes('No listado')) return Infinity;
+    let numericString = priceText.replace(/COP|€|US/g, '').trim();
+    numericString = numericString.replace(/\./g, '').replace(',', '.');
+    return parseFloat(numericString) || Infinity;
 }
 
 function getGameLowestPrice(gameId) {
-    const gameData = dataJuegos[gameId];
+    // Necesita 'dataJuegos' definido globalmente para funcionar.
+    const gameData = window.dataJuegos ? window.dataJuegos[gameId] : null; 
     if (!gameData || !gameData.tiendas || gameData.tiendas.length === 0) {
         return Infinity;
     }
@@ -91,10 +86,8 @@ function getGameLowestPrice(gameId) {
             minPrice = price;
         }
     });
-
     return minPrice;
 }
-
 window.setFilter = function(nuevaCategoria = null) {
     if (nuevaCategoria) {
         categoriaActiva = nuevaCategoria;
@@ -102,9 +95,13 @@ window.setFilter = function(nuevaCategoria = null) {
     cargarJuegos(); 
     updateButtonStyles(); 
 };
-
 function cargarJuegos() {
     const contenedor = document.getElementById("contenedor-juegos");
+
+    if (typeof window.dataJuegos === 'undefined') {
+        contenedor.innerHTML = '<p class="text-center text-red-500">Cargando datos...</p>';
+        return; 
+    }
 
     const minInput = document.getElementById('price-min').value;
     const maxInput = document.getElementById('price-max').value;
@@ -116,7 +113,6 @@ function cargarJuegos() {
         const filtroCategoria = categoriaActiva === 'todos' || juego.tipo === categoriaActiva;
 
         const precioDelJuego = getGameLowestPrice(juego.id); 
-
         const filtroPrecio = precioDelJuego >= precioMin && precioDelJuego <= precioMax;
         
         return filtroCategoria && filtroPrecio;
@@ -138,6 +134,11 @@ function cargarJuegos() {
 
     contenedor.innerHTML = '';
     contenedor.className = "mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-10";
+
+    if (juegosFiltrados.length === 0) {
+        contenedor.innerHTML = '<p class="text-center text-gray-500 text-xl mt-12">No se encontraron juegos que coincidan con los filtros.</p>';
+        return;
+    }
 
     juegosFiltrados.forEach(juego => {
         const enlace = document.createElement("a")
@@ -166,8 +167,10 @@ function cargarJuegos() {
 }
 function updateButtonStyles() {
     const buttons = document.querySelectorAll('.flex.justify-center button');
-    buttons.forEach(btn => {
-        const category = btn.id.replace('filter-', ''); // 'todos', 'actual', 'antiguo'
+    const inputMin = document.getElementById('price-min');
+        
+       buttons.forEach(btn => {
+        const category = btn.id.replace('filter-', ''); 
         
         if (category === categoriaActiva) {
             btn.classList.add('bg-fuchsia-600', 'text-white');
@@ -177,6 +180,11 @@ function updateButtonStyles() {
             btn.classList.add('bg-gray-800', 'text-fuchsia-300');
         }
     });
+    if (inputMin && !inputMin.hasAttribute('data-initialized')) {
+         inputMin.addEventListener('input', () => setFilter());
+         document.getElementById('price-max').addEventListener('input', () => setFilter());
+         inputMin.setAttribute('data-initialized', true); 
+    }
 }
 function filtrarJuegos(tipo) {
     cargarJuegos(tipo);
@@ -185,12 +193,5 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarJuegos(tipo);
 });
 document.addEventListener("DOMContentLoaded", () => {
-    const params = new URLSearchParams(window.location.search);
-    const filtroURL = params.get('filter');
-    
-    if (filtroURL) {
-        setFilter(filtroURL);
-    } else {
-        setFilter('todos'); 
-    }
+    setFilter(new URLSearchParams(window.location.search).get('filter') || 'todos');
 });
