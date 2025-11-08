@@ -63,14 +63,63 @@ const juegos = [
         tipo: "antiguo"
     },
 ]
-function cargarJuegos(filtro = 'todos') {
+
+let categoriaActiva = 'todos';
+
+function parsePriceToUSD(priceText) {
+    if (!priceText || priceText.trim() === ' ' || priceText.includes('No listado')) return Infinity;
+    let numericString = priceText.replace(/[^0-9.,€US]/g, '').trim();
+    let value;
+    if (numericString.includes('COP')) {
+        value = parseFloat(numericString.replace(/COP/g, '').replace(/\./g, '')) / 4500;
+    } else {
+        value = parseFloat(numericString.replace(/€|US/g, '').replace(',', '.'));
+    }
+
+    return value || Infinity;
+}
+
+function getGameLowestPrice(gameId) {
+    const gameData = dataJuegos[gameId];
+    if (!gameData || !gameData.tiendas || gameData.tiendas.length === 0) {
+        return Infinity;
+    }
+    let minPrice = Infinity;
+    gameData.tiendas.forEach(tienda => {
+        const price = parsePriceToNumber(tienda.precio);
+        if (price < minPrice) {
+            minPrice = price;
+        }
+    });
+
+    return minPrice;
+}
+
+window.setFilter = function(nuevaCategoria = null) {
+    if (nuevaCategoria) {
+        categoriaActiva = nuevaCategoria;
+    }
+    cargarJuegos(); 
+    updateButtonStyles(); 
+};
+
+function cargarJuegos() {
     const contenedor = document.getElementById("contenedor-juegos");
 
+    const minInput = document.getElementById('price-min').value;
+    const maxInput = document.getElementById('price-max').value;
+
+    const precioMin = parseFloat(minInput) || 0;
+    const precioMax = parseFloat(maxInput) || Infinity;
+
     const juegosFiltrados = juegos.filter(juego => {
-        if (filtro === 'todos') {
-            return true;
-        }
-        return juego.tipo === filtro;
+        const filtroCategoria = categoriaActiva === 'todos' || juego.tipo === categoriaActiva;
+
+        const precioDelJuego = getGameLowestPrice(juego.id); 
+
+        const filtroPrecio = precioDelJuego >= precioMin && precioDelJuego <= precioMax;
+        
+        return filtroCategoria && filtroPrecio;
     });
 
     const botones = document.querySelectorAll('.flex.justify-center button');
@@ -115,6 +164,20 @@ function cargarJuegos(filtro = 'todos') {
 
     })
 }
+function updateButtonStyles() {
+    const buttons = document.querySelectorAll('.flex.justify-center button');
+    buttons.forEach(btn => {
+        const category = btn.id.replace('filter-', ''); // 'todos', 'actual', 'antiguo'
+        
+        if (category === categoriaActiva) {
+            btn.classList.add('bg-fuchsia-600', 'text-white');
+            btn.classList.remove('bg-gray-800', 'text-fuchsia-300');
+        } else {
+            btn.classList.remove('bg-fuchsia-600', 'text-white');
+            btn.classList.add('bg-gray-800', 'text-fuchsia-300');
+        }
+    });
+}
 function filtrarJuegos(tipo) {
     cargarJuegos(tipo);
 }
@@ -124,9 +187,10 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
     const filtroURL = params.get('filter');
+    
     if (filtroURL) {
-        cargarJuegos(filtroURL);
+        setFilter(filtroURL);
     } else {
-        cargarJuegos('todos');
+        setFilter('todos'); 
     }
 });
