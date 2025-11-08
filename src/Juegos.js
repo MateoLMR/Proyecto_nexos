@@ -64,58 +64,14 @@ const juegos = [
     },
 ]
 
-let categoriaActiva = 'todos';
-
-function parsePriceToNumber(priceText) {
-    if (typeof priceText === 'undefined' || priceText.trim() === ' ' || priceText.includes('No listado')) return Infinity;
-    let numericString = priceText.replace(/COP|€|US/g, '').trim();
-    numericString = numericString.replace(/\./g, '').replace(',', '.');
-    return parseFloat(numericString) || Infinity;
-}
-
-function getGameLowestPrice(gameId) {
-    // Necesita 'dataJuegos' definido globalmente para funcionar.
-    const gameData = window.dataJuegos ? window.dataJuegos[gameId] : null; 
-    if (!gameData || !gameData.tiendas || gameData.tiendas.length === 0) {
-        return Infinity;
-    }
-    let minPrice = Infinity;
-    gameData.tiendas.forEach(tienda => {
-        const price = parsePriceToNumber(tienda.precio);
-        if (price < minPrice) {
-            minPrice = price;
-        }
-    });
-    return minPrice;
-}
-window.setFilter = function(nuevaCategoria = null) {
-    if (nuevaCategoria) {
-        categoriaActiva = nuevaCategoria;
-    }
-    cargarJuegos(); 
-    updateButtonStyles(); 
-};
-function cargarJuegos() {
+function cargarJuegos(filtro = 'todos') {
     const contenedor = document.getElementById("contenedor-juegos");
 
-    if (typeof window.dataJuegos === 'undefined') {
-        contenedor.innerHTML = '<p class="text-center text-red-500">Cargando datos...</p>';
-        return; 
-    }
-
-    const minInput = document.getElementById('price-min').value;
-    const maxInput = document.getElementById('price-max').value;
-
-    const precioMin = parseFloat(minInput) || 0;
-    const precioMax = parseFloat(maxInput) || Infinity;
-
     const juegosFiltrados = juegos.filter(juego => {
-        const filtroCategoria = categoriaActiva === 'todos' || juego.tipo === categoriaActiva;
-
-        const precioDelJuego = getGameLowestPrice(juego.id); 
-        const filtroPrecio = precioDelJuego >= precioMin && precioDelJuego <= precioMax;
-        
-        return filtroCategoria && filtroPrecio;
+        if (filtro === 'todos') {
+            return true;
+        }
+        return juego.tipo === filtro;
     });
 
     const botones = document.querySelectorAll('.flex.justify-center button');
@@ -134,11 +90,6 @@ function cargarJuegos() {
 
     contenedor.innerHTML = '';
     contenedor.className = "mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-10";
-
-    if (juegosFiltrados.length === 0) {
-        contenedor.innerHTML = '<p class="text-center text-gray-500 text-xl mt-12">No se encontraron juegos que coincidan con los filtros.</p>';
-        return;
-    }
 
     juegosFiltrados.forEach(juego => {
         const enlace = document.createElement("a")
@@ -165,27 +116,6 @@ function cargarJuegos() {
 
     })
 }
-function updateButtonStyles() {
-    const buttons = document.querySelectorAll('.flex.justify-center button');
-    const inputMin = document.getElementById('price-min');
-        
-       buttons.forEach(btn => {
-        const category = btn.id.replace('filter-', ''); 
-        
-        if (category === categoriaActiva) {
-            btn.classList.add('bg-fuchsia-600', 'text-white');
-            btn.classList.remove('bg-gray-800', 'text-fuchsia-300');
-        } else {
-            btn.classList.remove('bg-fuchsia-600', 'text-white');
-            btn.classList.add('bg-gray-800', 'text-fuchsia-300');
-        }
-    });
-    if (inputMin && !inputMin.hasAttribute('data-initialized')) {
-         inputMin.addEventListener('input', () => setFilter());
-         document.getElementById('price-max').addEventListener('input', () => setFilter());
-         inputMin.setAttribute('data-initialized', true); 
-    }
-}
 function filtrarJuegos(tipo) {
     cargarJuegos(tipo);
 }
@@ -193,5 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarJuegos(tipo);
 });
 document.addEventListener("DOMContentLoaded", () => {
-    setFilter(new URLSearchParams(window.location.search).get('filter') || 'todos');
+    const params = new URLSearchParams(window.location.search);
+    const filtroURL = params.get('filter');
+    if (filtroURL) {
+        cargarJuegos(filtroURL);
+    } else {
+        cargarJuegos('todos');
+    }
 });
