@@ -75,7 +75,7 @@
         function saveComments(comments) {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
         }
-        //Esta funcion formatea el tiempo transcurrido desde que se publico el comentario
+        // Esta funcion formatea el tiempo transcurrido desde que se publico el comentario
         function formatTimeAgo(timestamp) {
             const seconds = Math.floor((new Date() - new Date(timestamp)) / 1000);
             let interval = seconds / 31536000;
@@ -297,7 +297,7 @@
         }
 
 
-        //Funciones de Reacción y Eliminación 
+        // Funciones de Reacción y Eliminación 
         function toggleReaction(id, type) {
             const comments = getComments();
             const commentIndex = comments.findIndex(c => c.id === id);
@@ -334,7 +334,7 @@
             }
         }
 
-        //Inicialización
+        // Inicialización
         document.addEventListener('DOMContentLoaded', renderComments);
     </script>
 </body>

@@ -1,4 +1,4 @@
-//Este es el array que almacena los juegos y sus datos para luego ser mostrados en la pagina de juegos
+// Este es el array que almacena los juegos y sus datos para luego ser mostrados en la pagina de juegos
 const juegos = [
     {
         id: "ck3",
@@ -65,7 +65,7 @@ const juegos = [
     },
 ]
 
-//Esta funcion carga los juegos en la pagina de juegos y permite filtrarlos por tipo aparte de mostrar el diseño de previsualizacion de cada juego
+// Esta funcion carga los juegos en la pagina de juegos y permite filtrarlos por tipo aparte de mostrar el diseño de previsualizacion de cada juego
 function cargarJuegos(filtro = 'todos') {
     const contenedor = document.getElementById("contenedor-juegos");
 
@@ -118,14 +118,14 @@ function cargarJuegos(filtro = 'todos') {
 
     })
 }
-//Esta funcion permite filtrar los juegos por tipo al hacer click en los botones correspondientes
+// Esta funcion permite filtrar los juegos por tipo al hacer click en los botones correspondientes
 function filtrarJuegos(tipo) {
     cargarJuegos(tipo);
 }
 document.addEventListener("DOMContentLoaded", () => {
     cargarJuegos(tipo);
 });
-//Carga los juegos al cargar la pagina y aplica el filtro si es que viene en la URL
+// Carga los juegos al cargar la pagina y aplica el filtro si es que viene en la URL
 document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
     const filtroURL = params.get('filter');

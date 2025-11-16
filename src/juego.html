@@ -27,7 +27,7 @@
 </header>
 <body class="bg-gray-900 overflow-x-hidden min-h-screen">
     <main class="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-    //Diseño principal de la seccion de detalle del juego
+    // Diseño principal de la seccion de detalle del juego
     <div class="flex flex-col lg:flex-row lg:gap-8">
         <div class="w-full lg:w-4/6 mb-8 lg:mb-0">
             <div id="main-media-container"
@@ -43,7 +43,7 @@
         </div>
 </main>
 
-//Modal para mostrar imagen ampliada
+// Modal para mostrar imagen ampliada
     <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999] hidden"
         onclick="closeModal()">
         <img id="modal-image" src="" alt="Imagen ampliada del juego"
@@ -54,9 +54,9 @@
             &times;
         </button>
     </div>
-//Llamada al js de detalle-juegos para la funcionalidad de cargar el detalle del juego
+// Llamada al js de detalle-juegos para la funcionalidad de cargar el detalle del juego
     <script src="detalle-juegos.js"></script>
-    //Script para la funcionalidad de cambiar media principal, navegar con teclas y abrir/cerrar modal
+    // Script para la funcionalidad de cambiar media principal, navegar con teclas y abrir/cerrar modal
    <script>
     let currentGameId = null;
     let currentIndex = 0; 
@@ -95,7 +95,7 @@
         }
         updateActiveThumbnail(index);
     }
-    //Funcion para resaltar la miniatura activa
+    // Funcion para resaltar la miniatura activa
     function updateActiveThumbnail(activeIndex) {
         const thumbnails = document.querySelectorAll('#miniaturas-container button');
         thumbnails.forEach((button, index) => {
@@ -109,7 +109,7 @@
             }
         });
     }
-//Funcion para navegar por la galeria con las flechas izquierda y derecha
+// Funcion para navegar por la galeria con las flechas izquierda y derecha
     function navigateGallery(direction) {
         const juego = dataJuegos[currentGameId];
         if (!juego || !juego.galeria) return;
@@ -128,7 +128,7 @@
             
             cargarDetalleJuego();
         }
-        //Agregar listener para las teclas de flecha
+        //  Agregar listener para las teclas de flecha
         document.addEventListener('keydown', (e) => {
             if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
                 return;

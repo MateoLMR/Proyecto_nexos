@@ -1,4 +1,4 @@
-//array que contiene todos los datos e informacion detallada de cada juego para poder cargarlos a la ficha del juego
+// array que contiene todos los datos e informacion detallada de cada juego para poder cargarlos a la ficha del juego
 const dataJuegos = {
     "ck3": {
         titulo: "Crusader Kings III",
@@ -301,7 +301,7 @@ const dataJuegos = {
     },
 }
 
-//funcion para cambiar el video o la imagen principal al hacer click en una miniatura
+// funcion para cambiar el video o la imagen principal al hacer click en una miniatura
 function cargarMediaInicial(juego) {
     if (juego && juego.galeria && juego.galeria.length > 0) {
         const primerElemento = juego.galeria[0];
@@ -309,7 +309,7 @@ function cargarMediaInicial(juego) {
     }
 }
 
-//funcion para cambiar el video o la imagen principal al hacer click en una miniatura
+// funcion para cambiar el video o la imagen principal al hacer click en una miniatura
 function cargarDetalleJuego() {
     const params = new URLSearchParams(window.location.search);
     const idJuego = params.get("id");
@@ -398,7 +398,7 @@ function cargarDetalleJuego() {
         contenedor.innerHTML = '<h1 class="text-4xl text-center text-red-500">Error: Juego no encontrado.</h1>';
     }
 }
-//funcion para llenar los dropdowns de seleccion de juegos para comparar                                                                                                                                                                               
+// funcion para llenar los dropdowns de seleccion de juegos para comparar                                                                                                                                                                               
 function llenarDropdowns() {
     const selectA = document.getElementById('seleccion-juego-a');
     const selectB = document.getElementById('seleccion-juego-b');
@@ -412,7 +412,7 @@ function llenarDropdowns() {
     selectA.innerHTML += opcionesHTML;
     selectB.innerHTML += opcionesHTML;
 }
-//funcion para cargar la comparacion de los dos juegos seleccionados
+// funcion para cargar la comparacion de los dos juegos seleccionados
 function cargarComparacion() {
     const idA = document.getElementById('seleccion-juego-a').value;
     const idB = document.getElementById('seleccion-juego-b').value;
