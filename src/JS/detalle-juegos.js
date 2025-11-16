@@ -6,7 +6,7 @@ const dataJuegos = {
         lanzamiento: 2020,
         plataformas: "PC, PS5, Xbox Series",
         descripcionLarga: "Crusader Kings III te pone al mando de una dinastía medieval. La estrategia aquí no se centra solo en el campo de batalla, sino en la intriga, la diplomacia, los matrimonios y la gestión de tu linaje a lo largo de generaciones.",
-        imagen: "Imagenes-juegos/Crusadersking3/Imagen-juego-1.png",
+        imagen: "../Imagenes-juegos/Crusadersking3/Imagen-juego-1.png",
         Creador: " Paradox Development Studio",
 
         tiendas: [
@@ -17,13 +17,13 @@ const dataJuegos = {
         ],
 
         galeria: [
-            { tipo: 'video', src: 'Videos-juegos/Crusader Kings III - Gameplay Teaser.mp4', thumb: 'Imagenes-juegos/Crusadersking3/Imagen-juego-1.png' },
-            { tipo: 'video', src: 'Videos-juegos/Crusader Kings 3 - Official Story Trailer.mp4', thumb: 'Imagenes-juegos/Crusadersking3/Imagen-juego-1.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/imgck2.png', thumb: 'Imagenes-juegos/Crusadersking3/imgck2.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/imgck3.png', thumb: 'Imagenes-juegos/Crusadersking3/imgck3.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/imgck4.png', thumb: 'Imagenes-juegos/Crusadersking3/imgck4.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/imgck5.png', thumb: 'Imagenes-juegos/Crusadersking3/imgck5.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/imgck6.png', thumb: 'Imagenes-juegos/Crusadersking3/imgck6.png' },
+            { tipo: 'video', src: '../Videos-juegos/Crusader Kings III - Gameplay Teaser.mp4', thumb: '../Imagenes-juegos/Crusadersking3/Imagen-juego-1.png' },
+            { tipo: 'video', src: '../Videos-juegos/Crusader Kings 3 - Official Story Trailer.mp4', thumb: '../Imagenes-juegos/Crusadersking3/Imagen-juego-1.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/imgck2.png', thumb: '../Imagenes-juegos/Crusadersking3/imgck2.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/imgck3.png', thumb: '../Imagenes-juegos/Crusadersking3/imgck3.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/imgck4.png', thumb: '../Imagenes-juegos/Crusadersking3/imgck4.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/imgck5.png', thumb: '../Imagenes-juegos/Crusadersking3/imgck5.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/imgck6.png', thumb: '../Imagenes-juegos/Crusadersking3/imgck6.png' },
         ],
 
         contras: [
@@ -44,7 +44,7 @@ const dataJuegos = {
         lanzamiento: 1991,
         plataformas: "PC(DOS)",
         descripcionLarga: "El pilar de los juegos de estrategia por turnos. Creado por Sid Meier, Civilization estableció el modelo 4X (eXplorar, eXpandir, eXplotar, eXterminar) donde controlas una civilización a lo largo de miles de años, desde la prehistoria hasta la era espacial. Fue fundamental para popularizar el género de estrategia a gran escala.",
-        imagen: "Imagenes/civilization1991.png",
+        imagen: "../Imagenes/civilization1991.png",
         Creador: "2K",
 
         tiendas: [
@@ -52,12 +52,12 @@ const dataJuegos = {
         ],
 
         galeria: [
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv1.png', thumb: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv1.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv2.png', thumb: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv2.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv3.png', thumb: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv3.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv4.png', thumb: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv4.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv5.png', thumb: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv5.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv6.png', thumb: 'Imagenes-juegos/Crusadersking3/civilization1991/imgcv6.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv1.png', thumb: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv1.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv2.png', thumb: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv2.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv3.png', thumb: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv3.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv4.png', thumb: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv4.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv5.png', thumb: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv5.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv6.png', thumb: '../Imagenes-juegos/Crusadersking3/civilization1991/imgcv6.png' },
         ],
 
         contras: [
@@ -77,7 +77,7 @@ const dataJuegos = {
         lanzamiento: 1995,
         plataformas: "PC, (DOS/Windows), Mac",
         descripcionLarga: "Warcraft II solidificó la fórmula de la Estrategia en Tiempo Real (RTS) con una adición clave de fantasía épica, haciendo que el género se disparara en popularidad. Su éxito fue crucial para la explosión del multijugador en línea y sentó las bases para el universo Warcraft.",
-        imagen: "Imagenes/warcraft2.png",
+        imagen: "../Imagenes/warcraft2.png",
         Creador: "Blizzard Entertaiment",
 
         tiendas: [
@@ -85,10 +85,10 @@ const dataJuegos = {
         ],
 
         galeria: [
-            { tipo: 'video', src: 'Videos-juegos/Warcraft 2 Intro.mp4', thumb: 'Imagenes/warcraft2.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt1.png', thumb: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt1.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt2.png', thumb: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt2.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt3.png', thumb: 'Imagenes-juegos/Crusadersking3/Warcraft2/imgwt3.png' },
+            { tipo: 'video', src: '../Videos-juegos/Warcraft 2 Intro.mp4', thumb: 'Imagenes/warcraft2.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/Warcraft2/imgwt1.png', thumb: '../Imagenes-juegos/Crusadersking3/Warcraft2/imgwt1.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/Warcraft2/imgwt2.png', thumb: '../Imagenes-juegos/Crusadersking3/Warcraft2/imgwt2.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/Warcraft2/imgwt3.png', thumb: '../Imagenes-juegos/Crusadersking3/Warcraft2/imgwt3.png' },
         ],
 
         contras: [
@@ -109,7 +109,7 @@ const dataJuegos = {
         lanzamiento: 1999,
         plataformas: "PC, Windows, Mac",
         descripcionLarga: "Un pionero de la estrategia a gran escala que combina la exploración de un mapa de aventuras por turnos con combates tácticos en un tablero hexagonal. Su mezcla de gestión de recursos, desarrollo de héroes y ejércitos fantásticos lo convirtió en un clásico de culto.",
-        imagen: "Imagenes/heroes of magic.png",
+        imagen: "../Imagenes/heroes of magic.png",
         Creador: "Dotemu",
 
         tiendas: [
@@ -118,11 +118,11 @@ const dataJuegos = {
         ],
 
         galeria: [
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/heroesmagic/imghm1.png', thumb: 'Imagenes-juegos/Crusadersking3/heroesmagic/imghm1.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/heroesmagic/imghm2.png', thumb: 'Imagenes-juegos/Crusadersking3/heroesmagic/imghm2.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/heroesmagic/imghm3.png', thumb: 'Imagenes-juegos/Crusadersking3/heroesmagic/imghm3.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/heroesmagic/imghm4.png', thumb: 'Imagenes-juegos/Crusadersking3/heroesmagic/imghm4.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/heroesmagic/imghm5.png', thumb: 'Imagenes-juegos/Crusadersking3/heroesmagic/imghm5.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/heroesmagic/imghm1.png', thumb: '../Imagenes-juegos/Crusadersking3/heroesmagic/imghm1.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/heroesmagic/imghm2.png', thumb: '../Imagenes-juegos/Crusadersking3/heroesmagic/imghm2.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/heroesmagic/imghm3.png', thumb: '../Imagenes-juegos/Crusadersking3/heroesmagic/imghm3.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/heroesmagic/imghm4.png', thumb: '../Imagenes-juegos/Crusadersking3/heroesmagic/imghm4.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/heroesmagic/imghm5.png', thumb: '../Imagenes-juegos/Crusadersking3/heroesmagic/imghm5.png' },
         ],
 
         contras: [
@@ -142,7 +142,7 @@ const dataJuegos = {
         lanzamiento: 2021,
         plataformas: "PC, Xbox Series, PlayStation 5",
         descripcionLarga: "El gran regreso de la saga RTS más aclamada. AoE IV refina la fórmula clásica de construcción de base y guerra con ocho civilizaciones únicas y campañas históricas bien narradas. Es un título moderno con gran fidelidad a sus raíces.",
-        imagen: "Imagenes/ag.png",
+        imagen: "../Imagenes/ag.png",
         Creador: "Relic Entertaiment",
 
         tiendas: [
@@ -153,12 +153,12 @@ const dataJuegos = {
         ],
 
         galeria: [
-            { tipo: 'video', src: 'Videos-juegos/age-video.mp4', thumb: 'Imagenes/ag.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag1.png', thumb: 'Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag1.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag2.png', thumb: 'Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag2.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag3.png', thumb: 'Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag3.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag4.png', thumb: 'Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag4.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag5.png', thumb: 'Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag5.png' }
+            { tipo: 'video', src: '../Videos-juegos/age-video.mp4', thumb: '../Imagenes/ag.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag1.png', thumb: '../Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag1.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag2.png', thumb: '../Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag2.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag3.png', thumb: '../Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag3.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag4.png', thumb: '../Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag4.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag5.png', thumb: '../Imagenes-juegos/Crusadersking3/AgeofEmpires4/imgag5.png' }
         ],
 
         contras: [
@@ -178,7 +178,7 @@ const dataJuegos = {
         lanzamiento: 2022,
         plataformas: "PC, Mac",
         descripcionLarga: "El épico final de la trilogía Total War Warhammer. Combina la gestión de un imperio por turnos en el mapa de campaña (estrategia) con batallas masivas en tiempo real (táctica). Conocido por su enorme escala y variedad de facciones fantásticas.",
-        imagen: "Imagenes/tw.png",
+        imagen: "../Imagenes/tw.png",
         Creador: "Creative Assembly",
 
         tiendas: [
@@ -187,12 +187,12 @@ const dataJuegos = {
         ],
 
         galeria: [
-            { tipo: 'video', src: 'Videos-juegos/tw-trailer.mp4', thumb: './Imagenes/tw.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/TotalWar3/imgtw1.png', thumb: 'Imagenes-juegos/Crusadersking3/TotalWar3/imgtw1.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/TotalWar3/imgtw2.png', thumb: 'Imagenes-juegos/Crusadersking3/TotalWar3/imgtw2.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/TotalWar3/imgtw3.png', thumb: 'Imagenes-juegos/Crusadersking3/TotalWar3/imgtw3.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/TotalWar3/imgtw4.png', thumb: 'Imagenes-juegos/Crusadersking3/TotalWar3/imgtw4.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/TotalWar3/imgtw5.png', thumb: 'Imagenes-juegos/Crusadersking3/TotalWar3/imgtw5.png' }
+            { tipo: 'video', src: '../Videos-juegos/tw-trailer.mp4', thumb: '../Imagenes/tw.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/TotalWar3/imgtw1.png', thumb: '../Imagenes-juegos/Crusadersking3/TotalWar3/imgtw1.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/TotalWar3/imgtw2.png', thumb: '../Imagenes-juegos/Crusadersking3/TotalWar3/imgtw2.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/TotalWar3/imgtw3.png', thumb: '../Imagenes-juegos/Crusadersking3/TotalWar3/imgtw3.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/TotalWar3/imgtw4.png', thumb: '../Imagenes-juegos/Crusadersking3/TotalWar3/imgtw4.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/TotalWar3/imgtw5.png', thumb: '../Imagenes-juegos/Crusadersking3/TotalWar3/imgtw5.png' }
         ],
 
         contras: [
@@ -212,17 +212,17 @@ const dataJuegos = {
         lanzamiento: 1998,
         plataformas: "PC, Mac",
         descripcionLarga: "Considerado por muchos como el pináculo del RTS competitivo. StarCraft: Brood War definió la jugabilidad asimétrica y la alta habilidad mecánica requerida en el género. Es gratuito en su versión remasterizada, StarCraft: Remastered.",
-        imagen: "Imagenes/st.png",
+        imagen: "../Imagenes/st.png",
         Creador: "Blizzard Entertainment",
 
         tiendas: [
             { nombre: "Battle.net (Gratis)", precio: "0,00 €", url: "https://us.shop.battle.net/es-mx/product/starcraft-remastered" },
         ],
         galeria: [
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/Starcraftbrood/st1.png', thumb: 'Imagenes-juegos/Crusadersking3/Starcraftbrood/st1.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/Starcraftbrood/st2.png', thumb: 'Imagenes-juegos/Crusadersking3/Starcraftbrood/st2.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/Starcraftbrood/st3.png', thumb: 'Imagenes-juegos/Crusadersking3/Starcraftbrood/st3.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Crusadersking3/Starcraftbrood/st4.png', thumb: 'Imagenes-juegos/Crusadersking3/Starcraftbrood/st4.png' }
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/Starcraftbrood/st1.png', thumb: '../Imagenes-juegos/Crusadersking3/Starcraftbrood/st1.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/Starcraftbrood/st2.png', thumb: '../Imagenes-juegos/Crusadersking3/Starcraftbrood/st2.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/Starcraftbrood/st3.png', thumb: '../Imagenes-juegos/Crusadersking3/Starcraftbrood/st3.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Crusadersking3/Starcraftbrood/st4.png', thumb: '../Imagenes-juegos/Crusadersking3/Starcraftbrood/st4.png' }
         ],
         contras: [
             "Mecánicas de interfaz muy anticuadas y rudas.",
@@ -240,7 +240,7 @@ const dataJuegos = {
         lanzamiento: 2024,
         plataformas: "PC",
         descripcionLarga: "Combina la construcción de ciudades medievales con batallas tácticas masivas en tiempo real. Se enfoca en la gestión de recursos, la expansión territorial y el desarrollo orgánico de asentamientos, ofreciendo un gran realismo histórico.",
-        imagen: "Imagenes/mnl.png",
+        imagen: "../Imagenes/mnl.png",
         Creador: "Slavic Magic",
 
         tiendas: [
@@ -251,12 +251,12 @@ const dataJuegos = {
             { nombre: "GoG.Com (Standar version)", precio: "13.29 US", url: "https://www.gog.com/en/game/manor_lords" },
         ],
         galeria: [
-            { tipo: 'video', src: 'Videos-juegos/manorgameplay.mp4', thumb: 'Imagenes/mnl.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Manorlords/mnl1.png', thumb: 'Imagenes-juegos/Manorlords/mnl1.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Manorlords/mnl2.png', thumb: 'Imagenes-juegos/Manorlords/mnl2.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Manorlords/mnl3.png', thumb: 'Imagenes-juegos/Manorlords/mnl3.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Manorlords/mnl4.png', thumb: 'Imagenes-juegos/Manorlords/mnl4.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Manorlords/mnl5.png', thumb: 'Imagenes-juegos/Manorlords/mnl5.png' }
+            { tipo: 'video', src: '../Videos-juegos/manorgameplay.mp4', thumb: '../Imagenes/mnl.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Manorlords/mnl1.png', thumb: '../Imagenes-juegos/Manorlords/mnl1.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Manorlords/mnl2.png', thumb: '../Imagenes-juegos/Manorlords/mnl2.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Manorlords/mnl3.png', thumb: '../Imagenes-juegos/Manorlords/mnl3.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Manorlords/mnl4.png', thumb: '../Imagenes-juegos/Manorlords/mnl4.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Manorlords/mnl5.png', thumb: '../Imagenes-juegos/Manorlords/mnl5.png' }
         ],
         contras: [
             "El juego está en acceso anticipado (Early Access).",
@@ -274,7 +274,7 @@ const dataJuegos = {
         lanzamiento: 2016,
         plataformas: "PC, PS4, Xbox One, Switch",
         descripcionLarga: "Un líder del género táctico por turnos. Combina la gestión estratégica de tu base y tecnología (Estrategia Global) con combates tácticos por escuadrones en misiones procedurales, donde la cobertura y el posicionamiento son vitales.",
-        imagen: "Imagenes/xc2.png",
+        imagen: "../Imagenes/xc2.png",
         Creador: "Firaxis Games",
 
         tiendas: [
@@ -284,10 +284,10 @@ const dataJuegos = {
             { nombre: "Eneba (Key)", precio: "8.259 COP", url: "https://www.eneba.com/latam/steam-xcom-2-steam-key-global" },
         ],
         galeria: [
-            { tipo: 'image', src: 'Imagenes-juegos/Xcom2/xc1.png', thumb: 'Imagenes-juegos/Xcom2/xc1.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Xcom2/xc3.png', thumb: 'Imagenes-juegos/Xcom2/xc3.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Xcom2/xc4.png', thumb: 'Imagenes-juegos/Xcom2/xc4.png' },
-            { tipo: 'image', src: 'Imagenes-juegos/Xcom2/xc5.png', thumb: 'Imagenes-juegos/Xcom2/xc5.png' }
+            { tipo: 'image', src: '../Imagenes-juegos/Xcom2/xc1.png', thumb: '../Imagenes-juegos/Xcom2/xc1.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Xcom2/xc3.png', thumb: '../Imagenes-juegos/Xcom2/xc3.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Xcom2/xc4.png', thumb: '../Imagenes-juegos/Xcom2/xc4.png' },
+            { tipo: 'image', src: '../Imagenes-juegos/Xcom2/xc5.png', thumb: '../Imagenes-juegos/Xcom2/xc5.png' }
         ],
         contras: [
             "La dificultad es muy elevada (conocida como 'XCOM difficulty').",
