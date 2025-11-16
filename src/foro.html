@@ -28,6 +28,7 @@
 </header>
 
 <body class="bg-gray-900 overflow-x-hidden min-h-screen">
+    //Seccion principal del foro con el formulario para postear comentarios y el contenedor de comentarios
     <div class="bg-gray-900 py-12 sm:py-18 overflow-hidden min-h-screen">
         <div class="mx-auto max-w-4xl px-6 lg:px-8">
             <h2 class="text-5xl font-bold tracking-tight text-white sm:text-5x1 text-center mb-14">
@@ -56,12 +57,13 @@
                     </div>
                 </div>
             </div>
-
+            //Contenedor de comentarios donde se cargan los comentarios guardados en localStorage
             <div id="comments-container" class="mt-12 space-y-8">
             </div>
         </div>
     </div>
 
+    //Script con toda la funcionalidad del foro como postear, responder, eliminar comentarios y reacciones
     <script>
         const STORAGE_KEY = 'forumComments';
 
@@ -73,7 +75,7 @@
         function saveComments(comments) {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
         }
-
+        //Esta funcion formatea el tiempo transcurrido desde que se publico el comentario
         function formatTimeAgo(timestamp) {
             const seconds = Math.floor((new Date() - new Date(timestamp)) / 1000);
             let interval = seconds / 31536000;
@@ -295,7 +297,7 @@
         }
 
 
-        //Funciones de Reacción y Eliminación (Actualizadas) 
+        //Funciones de Reacción y Eliminación 
         function toggleReaction(id, type) {
             const comments = getComments();
             const commentIndex = comments.findIndex(c => c.id === id);
