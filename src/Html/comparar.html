@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexos | Juegos</title>
+    <title>Nexos | Comparar</title>
     <link rel="icon" href="Imagenes/logo.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-
 <header class=" isolate overflow-hidden bg-purple-950 py-6 sm:py-0 border-b border-fuchsia-300/30 sticky top-0 z-50">
     <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 relative z-10">
         <div class="flex lg:flex-2">
@@ -27,33 +26,29 @@
     </nav>
 </header>
 
-<body class="bg-gray-900 overflow-x-hidden min-h-screen">
-    <!-- Seccion principal de juegos con filtro y contenedor de juegos este es el diseño principal -->
-    <main class="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-        <h1 class="text-5xl font-bold text-center text-white mb-4">Catálogo de Juegos</h1>
-        <p class="text-xl text-center text-fuchsia-300 mb-12">Explora los mejores juegos de estrategia actuales y
-            Antiguos.</p>
-
-        <div class="flex justify-center space-x-4 mb-12">
-            <button id="filter-todos" onclick="filtrarJuegos('todos')"
-                class="px-5 py-2 rounded-full text-base font-semibold text-white bg-fuchsia-600 hover:bg-fuchsia-700 transition-colors">
-                Todos
-            </button>
-            <button id="filter-actual" onclick="filtrarJuegos('actual')"
-                class="px-5 py-2 rounded-full text-base font-semibold text-fuchsia-300 bg-gray-800 hover:bg-gray-700 transition-colors">
-                Actuales
-            </button>
-            <button id="filter-antiguo" onclick="filtrarJuegos('antiguo')"
-                class="px-5 py-2 rounded-full text-base font-semibold text-fuchsia-300 bg-gray-800 hover:bg-gray-700 transition-colors">
-                Antiguos
-            </button>
+<body class="bg-gray-900 overflow-x-hidden min-h-screen flex flex-col">
+    <main class="mx-auto max-w-7xl px-6 lg:px-8 py-16 flex-grow">
+        <h1 class="text-5xl font-bold text-center text-white mb-12">Comparar Juegos</h1>
+        <!-- Esta es la del diseño de la seccion de comparar juegos aparte de llamary cargar la funcionalidad del js -->
+        <div class="flex justify-between items-center mb-10 space-x-4">
+            <select id="seleccion-juego-a" onchange="cargarComparacion()"
+                class="w-full lg:w-2/5 p-3 rounded-lg bg-gray-800 text-white border border-fuchsia-400 focus:ring-fuchsia-500">
+                <option value="">Selecciona Juego 1</option>
+            </select>
+            <span class="text-3xl font-bold text-fuchsia-400 hidden lg:block">vs</span>
+            <select id="seleccion-juego-b" onchange="cargarComparacion()"
+                class="w-full lg:w-2/5 p-3 rounded-lg bg-gray-800 text-white border border-fuchsia-400 focus:ring-fuchsia-500">
+                <option value="">Selecciona Juego 2</option>
+            </select>
         </div>
-        <div id="contenedor-juegos" class="mt-8">
+
+        <!-- Aqui se obliga al usuario que tienen que ser dos juegos diferentes para poder comparar -->
+        <div id="comparacion-resultados">
+            <p class="text-center text-fuchsia-300">Selecciona dos juegos para empezar la comparación.</p>
         </div>
     </main>
-    <!-- Llamada al js de juegos para la funcionalidad de cargar y filtrar juegos -->
-    <script src="Juegos.js"></script>
-
+    <!-- Llamada al js de detalle-juegos para la funcionalidad de comparar -->
+    <script src="JS/detalle-juegos.js"></script>
 </body>
 
 <footer class="bg-gray-900 border-t border-fuchsia-300/30">
@@ -83,5 +78,4 @@
         </div>
     </div>
 </footer>
-
 </html>
