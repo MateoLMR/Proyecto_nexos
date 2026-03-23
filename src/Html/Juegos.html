@@ -9,20 +9,28 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<header class=" isolate overflow-hidden bg-purple-950 py-6 sm:py-0 border-b border-fuchsia-300/30 sticky top-0 z-50">
-    <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 relative z-10">
-        <div class="flex lg:flex-2">
-            <a href="../../index.html" class="-m-1.5 p-1.5 flex items-center gap-2">
+<header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
+
+    <nav aria-label="Global"
+        class="mx-auto flex max-w-7xl items-center justify-between px-8 py-3 
+        bg-purple-800/50 backdrop-blur-md border border-fuchsia-500/20 rounded-full shadow-2xl transition-all duration-300">
+        <div class="flex lg:flex-1">
+            <a href="index.html" class="flex items-center gap-2 transition-transform hover:scale-105">
                 <span class="sr-only">Nexos</span>
-                <img src="../Imagenes/logo.png" style="height: 45px; width: 45px;" class="h-10 w-10" />
-                <span class="text-2x2 font-semibold text-fuchsia-300">Nexos</span>
+                <img src="src/Imagenes/logo.png" alt="Logo Nexos" class="h-14 w-auto object-contain" />
             </a>
         </div>
-        <div class="flex flex-1 ml-2 justify-end items-center gap-10 lg:gap-x-12 ">
-            <a href="../../index.html" class="text-sm font-semibold leading-6 text-white" style="font-size: 16px;">Inicio</a>
-            <a href="Juegos.html" style="font-size: 16px;" class="text-sm font-semibold leading-6 text-white">Juegos</a>
-            <a href="comparar.html" style="font-size: 16px;" class="text-sm font-semibold leading-6 text-white">Comparacion</a>
-            <a href="foro.html" style="font-size: 16px;" class="text-sm font-semibold leading-6 text-white">Foro</a>
+        <div class="flex items-center gap-8 lg:gap-x-12 ml-6">
+            <a href="index.html"
+                class="text-[17px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300 hover:[text-shadow:_0_0_15px_rgb(212_126_252_/_0.8)]">Inicio</a>
+            <a href="src/Html/Juegos.html"
+                class="text-[17px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300 hover:[text-shadow:_0_0_15px_rgb(212_126_252_/_0.8)]">Juegos</a>
+            <a href="src/Html/comparar.html"
+                class="text-[17px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300 hover:[text-shadow:_0_0_15px_rgb(212_126_252_/_0.8)]">Comparación</a>
+            <a href=""
+                class="text-[17px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300 hover:[text-shadow:_0_0_15px_rgb(212_126_252_/_0.8)]">Esports</a>
+            <a href="src/Html/foro.html"
+                class="text-[17px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300 hover:[text-shadow:_0_0_15px_rgb(212_126_252_/_0.8)]">Foro</a>
         </div>
     </nav>
 </header>
