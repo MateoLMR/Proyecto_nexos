@@ -10,37 +10,110 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
-
     <nav aria-label="Global"
-        class="mx-auto flex max-w-7xl items-center justify-between px-8 py-3 
-        bg-purple-800/50 backdrop-blur-md border border-fuchsia-500/20 rounded-full shadow-2xl transition-all duration-300">
-        <div class="flex lg:flex-1">
-            <a href="index.html" class="flex items-center gap-2 transition-transform hover:scale-105">
+        class="mx-auto flex w-full max-w-7xl items-center justify-between px-10 py-4 
+        bg-purple-900/60 backdrop-blur-md border border-fuchsia-500/30 rounded-full shadow-2xl transition-all duration-300">
+
+        <div class="flex flex-1">
+            <a href="index.html" class="flex items-center gap-1 transition-transform hover:scale-105 active:scale-95">
                 <span class="sr-only">Nexos</span>
-                <img src="src/Imagenes/logo.png" alt="Logo Nexos" class="h-14 w-auto object-contain" />
-                <p class="  text-2xl font-bold text-white">Nexos</p>
+                <img src="src/Imagenes/logo.png" alt="Logo Nexos" class="h-12 w-auto object-contain" />
+                <p class="text-2xl font-bold text-white tracking-wider">Nexos</p>
             </a>
         </div>
-        <div class="flex items-center gap-8 lg:gap-x-12 ml-90">
+
+        <div id="nav-links" class="flex items-center gap-6 lg:gap-x-10">
             <a href="index.html"
-                class="text-[22px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300 hover:[text-shadow:_0_0_15px_rgb(212_126_252_/_0.8)]">Inicio</a>
+                class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+                Inicio
+                <span
+                    class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
             <a href="src/Html/Juegos.html"
-                class="text-[22px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300 hover:[text-shadow:_0_0_15px_rgb(212_126_252_/_0.8)]">Juegos</a>
+                class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+                Juegos
+                <span
+                    class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
             <a href="src/Html/comparar.html"
-                class="text-[22px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300 hover:[text-shadow:_0_0_15px_rgb(212_126_252_/_0.8)]">Comparación</a>
-            <a href=""
-                class="text-[22px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300 hover:[text-shadow:_0_0_15px_rgb(212_126_252_/_0.8)]">Esports</a>
+                class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+                Comparación
+                <span
+                    class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="src/Html/comparar.html"
+                class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+                Esports
+                <span
+                    class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
             <a href="src/Html/foro.html"
-                class="text-[22px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300 hover:[text-shadow:_0_0_15px_rgb(212_126_252_/_0.8)]">Foro</a>
+                class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+                Foro
+                <span
+                    class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
         </div>
     </nav>
+
+    <style>
+        @keyframes nexos-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 126, 252, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(212, 126, 252, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 126, 252, 0);
+            }
+        }
+
+        .click-pulse {
+            animation: nexos-pulse 0.5s ease-out;
+        }
+
+        .active-link {
+            color: #d47efc !important;
+        }
+
+        .active-underline {
+            width: 100% !important;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navItems = document.querySelectorAll('.nav-item');
+            // Normalizamos la URL actual para comparar
+            const currentUrl = window.location.href.toLowerCase();
+
+            navItems.forEach(item => {
+                const href = item.getAttribute('href').toLowerCase();
+
+                // Verificamos si la URL actual contiene el nombre del archivo del link
+                if (currentUrl.includes(href) || (currentUrl.endsWith('/') && href.includes('index.html'))) {
+                    item.classList.add('active-link');
+                    const underline = item.querySelector('span');
+                    if (underline) underline.classList.add('active-underline');
+                }
+
+                item.addEventListener('click', function (e) {
+                    // Animación antes de que cambie la página
+                    this.classList.add('click-pulse');
+                });
+            });
+        });
+    </script>
 </header>
 
 <body class="overflow-x-hidden bg-gray-900">
-    <div class="relative isolate overflow-hidden pt-40 pb-24 sm:pt-50 sm:pb-40">
+    <div class="relative isolate overflow-hidden pt-40 pb-24 sm:pt-85 sm:pb-40">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="flex flex-col items-center text-center">
-                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-8xl mb-6">
+                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-8xl mb-5">
                     Bienvenido a <span class="text-fuchsia-300">Nexos</span>
                 </h1>
                 <p class="text-2xl sm:text-4xl font-semibold text-fuchsia-300 min-h-[80px]">
@@ -49,7 +122,7 @@
             </div>
         </div>
         <div
-            class="mt-20 w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+            class="mt-75 w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
             <div class="logo-track">
                 <div class="logo-group">
                     <img src="src/Logos-Juegos/Overwatch.png"
@@ -112,22 +185,21 @@
             }
         </style>
 
-        <div class="bg-gray-900 py-24 sm:py-10">
+        <div class="bg-gray-900 pt-16 pb-0 sm:pt-10">
             <div class="relative isolate overflow-hidden bg-amber-50 py-16 sm:py-24">
                 <div class="mx-auto max-w-7xl px-10 lg:px-8">
                     <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
 
                         <div class="max-w-xl text-left lg:w-1/2">
                             <h2 class="text-4xl font-extrabold tracking-tight text-fuchsia-900 sm:text-6xl">
-                                Juegos Históricos
+                                Recomendados de la semana
                             </h2>
                             <p class="mt-6 text-2xl leading-9 text-fuchsia-900 opacity-90">
-                                Revive la época dorada. Explora los títulos que definieron el género de la estrategia y
-                                forjaron el camino de la industria. ¿Estás listo para volver a ser el comandante?
+                                Una exploracion a los juegos descubiertos por la comunidad esta semana.
                             </p>
-                            <div class="mt-8 flex items-center gap-x-6">
+                            <div class="mt-6 flex items-center gap-x-5">
                                 <p class="text-xl text-fuchsia-900/60 text-sm italic">
-                                    Haz clic en la tarjeta de la derecha para navegar entre clásicos →
+                                    Exploralos ahora →
                                 </p>
                             </div>
                         </div>
@@ -138,49 +210,73 @@
                             <article
                                 class="card-item absolute inset-0 transition-all duration-500 ease-in-out cursor-pointer isolate flex flex-col justify-end overflow-hidden rounded-3xl bg-gray-800 px-8 pb-10 pt-80 shadow-2xl"
                                 data-index="0">
-                                <img src="src/Imagenes/civilization1991.png"
+                                <img src="src/Imagenes/grime2.png"
                                     class="absolute inset-0 -z-10 h-full w-full object-cover" />
-                                <div
-                                    class="absolute inset-0 -z-10 bg-gradient-to-t from-fuchsia-900 via-fuchsia-900/40">
+                                <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/100 via-gray-900/60">
                                 </div>
-                                <time class="text-sm text-white opacity-80 uppercase tracking-widest">Septiembre
-                                    1991</time>
-                                <h3 class="mt-3 text-3xl font-bold text-white">
-                                    <a href="src/Html/juego.html?id=cv1">Civilization I</a>
+                                <time class="text-sm text-white opacity-100 uppercase tracking-widest">Marzo
+                                    31, 2026</time>
+                                <h3 class="mt-3 text-4xl font-bold text-white">
+                                    GRIME II
                                 </h3>
-                                <p class="mt-4 text-sm text-white/90 leading-relaxed">El pilar de la estrategia por
-                                    turnos. Controla una civilización desde la edad de piedra hasta la era espacial.</p>
+                                <p class="mt-5 text-lg text-white/100 leading-relaxed">Es un videojuego de acción y
+                                    aventura de estilo metroidvania con una atmósfera surrealista. Explora un mundo
+                                    alienígena oscuro y hostil, enfrentándote a criaturas grotescas y desafiantes
+                                    mientras descubres los secretos de este entorno misterioso. </p>
+
+                                <button
+                                    class="mt-6 px-7 py-2 bg-purple-950 hover:bg-purple-700/70 text-white rounded-2xl transition-colors w-max">
+                                    <a href="src/Html/juego.html?id=cv1">Ver Detalles</a>
+                                </button>
                             </article>
 
                             <article
                                 class="card-item absolute inset-0 transition-all duration-500 ease-in-out cursor-pointer isolate flex flex-col justify-end overflow-hidden rounded-3xl bg-gray-800 px-8 pb-10 pt-80 shadow-2xl opacity-0"
                                 data-index="1">
-                                <img src="src/Imagenes/warcraft2.png"
+                                <img src="src/Imagenes/hozy.png"
                                     class="absolute inset-0 -z-10 h-full w-full object-cover" />
-                                <div class="absolute inset-0 -z-10 bg-gradient-to-t from-blue-900 via-fuchsia-900/40">
+                                <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/100 via-gray-900/60">
                                 </div>
-                                <time class="text-sm text-white opacity-80 uppercase tracking-widest">Dic 5, 1995</time>
-                                <h3 class="mt-3 text-3xl font-bold text-white">
-                                    <a href="src/Html/juego.html?id=wt2">Warcraft II</a>
+                                <time class="text-sm text-white opacity-100 uppercase tracking-widest">Marzo 30,
+                                    2026</time>
+                                <h3 class="mt-3 text-4xl font-bold text-white">
+                                    Hozy
                                 </h3>
-                                <p class="mt-4 text-sm text-white/90 leading-relaxed">La batalla definitiva entre
-                                    humanos y orcos que popularizó el multijugador competitivo en línea.</p>
+                                <p class="mt-5 text-lg text-white/100 leading-relaxed">Es un simulador de relajación
+                                    y
+                                    decoración "cozy" donde restauras un vecindario olvidado habitación por
+                                    habitación.
+                                    El juego se centra en limpiar, pintar y amueblar casas abandonadas.mediante
+                                    mecánicas físicas satisfactorias, sin temporizadores ni presiones</p>
+
+                                <button
+                                    class="mt-6 px-7 py-2 bg-purple-950 hover:bg-purple-700/70 text-white rounded-2xl transition-colors w-max">
+                                    <a href="src/Html/juego.html?id=wt2">Ver Detalles</a>
+                                </button>
                             </article>
 
                             <article
                                 class="card-item absolute inset-0 transition-all duration-500 ease-in-out cursor-pointer isolate flex flex-col justify-end overflow-hidden rounded-3xl bg-gray-800 px-8 pb-10 pt-80 shadow-2xl opacity-0"
                                 data-index="2">
-                                <img src="src/Imagenes/heroes of magic.png"
+                                <img src="src/Imagenes/monsterhunter.png"
                                     class="absolute inset-0 -z-10 h-full w-full object-cover" />
-                                <div class="absolute inset-0 -z-10 bg-gradient-to-t from-purple-950 via-gray-900/40">
+                                <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/100 via-gray-900/60">
                                 </div>
-                                <time class="text-sm text-white opacity-80 uppercase tracking-widest">Feb 28,
-                                    1999</time>
-                                <h3 class="mt-3 text-3xl font-bold text-white">
-                                    <a href="src/Html/juego.html?id=hm3">Heroes of M&M III</a>
+                                <time class="text-sm text-white opacity-100 uppercase tracking-widest">Marzo 12,
+                                    2026</time>
+                                <h3 class="mt-3 text-4xl font-bold text-white">
+                                    Monster Hunter Stories 3: Twisted
+                                    Reflection</a>
                                 </h3>
-                                <p class="mt-4 text-sm text-white/90 leading-relaxed">Exploración y combates tácticos en
-                                    un tablero de fantasía que sigue siendo el estándar hoy en día.</p>
+                                <p class="mt-5 text-lg text-white/100 leading-relaxed">Es la tercera entrega de la
+                                    serie
+                                    RPG spin-off de Monster Hunter. En este título, asumes el papel de un "Monster
+                                    Rider" que forma vínculos con monstruos en lugar de cazarlos.</p>
+
+                                <button
+                                    class="mt-6 px-7 py-2 bg-purple-950 hover:bg-purple-700/70 text-white rounded-2xl transition-colors w-max">
+                                    <a href="src/Html/juego.html?id=hm3">Ver Detalles</a>
+                                </button>
                             </article>
                         </div>
                     </div>
@@ -188,55 +284,98 @@
             </div>
         </div>
     </div>
+    <section class="bg-gray-900 pb-25 px-50">
+        <div class="mx-auto max-w-8xl">
+            <div class="mb-16 text-center">
+                <h2 class="text-6xl font-bold text-white tracking-tight italic">NEXOS <span
+                        class="text-fuchsia-500">eSPORTS</span></h2>
+                <p class="mt-4 text-2xl text-gray-400">Sigue la huella digital de los torneos más grandes del mundo.
+                </p>
+            </div>
 
-    <div class="bg-gray-900 py-6 sm:py-6">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-100 gap-y-16 lg:max-w-none lg:grid-cols-2">
-                <div class="flex-col py-12">
-                    <img src="src/Imagenes/baldurs.png" style="width: 700px; height: 400px;" alt="Interface de código"
-                        class="rounded-xl shadow-lg w-full h-auto max-w-lg lg:max-w-none"
-                        class="rounded-xl shadow-lg" />
-                </div>
-                <div>
-                    <p style="text-align: center;"
-                        class="mt-0 text-3xl font-bold tracking-tight text-fuchsia-400 sm:text-4xl">Recomendaciones</p>
-                    <p style="text-align: center" class="mt-6 text-lg leading-8 text-fuchsia-300">
-                        ¿Quieres conocer mas de juegos de estrategia?
-                    </p>
-                    <div class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-300 lg:max-w-none">
-                        <div class="relative pl-9">
-                            <div class="font-semibold text-fuchsia-400">
-                                <p class="mt-2 text-right">Juegos Actuales</p>
-                            </div>
-                            <p class="mt-2 text-right text-fuchsia-300">Explora una amplia cantidad de juegos de
-                                estrategia actuales, con sus descripciones y previsualizaciones</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                            <div class="flex justify-end mt-2">
-                                <a href="src/Html/Juegos.html?filter=actual"
-                                    class="px-3.5 py-2 text-sm font-medium text-white bg-purple-950 hover:bg-purple-700/70 rounded-lg transition-colors">
-                                    Revisar
-                                </a>
-                            </div>
-                        </div>
-                        <div class="relative pl-9">
-                            <div class="font-semibold text-fuchsia-400">
-                                <p class="mt-2 text-left">Juegos Antiguos</p>
-                            </div>
-                            <p class="mt-2 text-left text-fuchsia-300">Explora una amplia cantidad de juegos de
-                                estrategia antiguos, algunos revolucionaron el genero y otros muchos fueron pilares.</p>
-                            <div class=" mt-2">
-                                <a href="src/Html/Juegos.html?filter=antiguo"
-                                    class="px-3.5 py-2 text-sm font-medium text-white bg-purple-950 hover:bg-purple-700/70 rounded-lg transition-colors">
-                                    Revisar
-                                </a>
-                            </div>
-                        </div>
+                <div
+                    class="group relative overflow-hidden rounded-xl bg-black h-96 border border-white/10 cursor-pointer transition-all duration-300 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(255,70,85,0.3)]">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"
+                        style="background-image: radial-gradient(#ff4655 1px, transparent 1px); background-size: 20px 20px;">
                     </div>
+                    <img src="src/Imagenes/valocup.png"
+                        class="absolute inset-0 h-full w-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" />
+                    <div
+                        class="relative z-20 h-full flex flex-col justify-end p-8 bg-gradient-to-t from-black via-transparent">
+                        <span
+                            class="inline-block w-fit px-3 py-1 rounded-full bg-red-600 text-[10px] font-bold text-white mb-3">PRÓXIMAMENTE</span>
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter">Champions Tour -
+                            Shanghái
+                        </h3>
+                        <p class="text-gray-300 text-base">24 de septiembre al 18 de octubre de 2026.</p>
+                    </div>
+                    <a href="https://valorantesports.com/es-MX/news/first-look-at-valorant-champions-tour-2026-"
+                        class="absolute inset-0 z-20"></a>
                 </div>
+
+                <div
+                    class="group relative overflow-hidden rounded-xl bg-black h-96 border border-white/10 cursor-pointer transition-all duration-300 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(0,207,239,0.3)]">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"
+                        style="background-image: radial-gradient(#00cfef 1px, transparent 1px); background-size: 15px 15px;">
+                    </div>
+                    <img src="src/Imagenes/lolworldcup.png"
+                        class="absolute inset-0 h-full w-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" />
+                    <div
+                        class="relative z-20 h-full flex flex-col justify-end p-8 bg-gradient-to-t from-black via-transparent">
+                        <span
+                            class="inline-block w-fit px-3 py-1 rounded-full bg-blue-600 text-[10px] font-bold text-white mb-3">PRÓXIMAMENTE</span>
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter">lol Worlds 2026 -
+                            Estados
+                            Unidos</h3>
+                        <p class="text-gray-300 text-base">Octubre - Noviembre 2026.</p>
+                    </div>
+                    <a href="https://lolesports.com/es-MX/" class="absolute inset-0 z-20"></a>
+                </div>
+
+                <div
+                    class="group relative overflow-hidden rounded-xl bg-black h-96 border border-white/10 cursor-pointer transition-all duration-300 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(252,163,17,0.3)]">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"
+                        style="background-image: radial-gradient(#fca311 1px, transparent 1px); background-size: 25px 25px;">
+                    </div>
+                    <img src="src/Imagenes/cs2cup.png"
+                        class="absolute inset-0 h-full w-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" />
+                    <div
+                        class="relative z-20 h-full flex flex-col justify-end p-8 bg-gradient-to-t from-black via-transparent">
+                        <span
+                            class="inline-block w-fit px-3 py-1 rounded-full bg-orange-500 text-[10px] font-bold text-white mb-3">PRÓXIMAMENTE</span>
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter">CS2 IEM Cologne -
+                            Alemania
+                        </h3>
+                        <p class="text-gray-300 text-base">2 al 21 de junio de 2026.</p>
+                    </div>
+                    <a href="https://esportsworldcup.com/en/competitions/2026/cs2" class="absolute inset-0 z-20"></a>
+                </div>
+
+                <div
+                    class="group relative overflow-hidden rounded-xl bg-black h-96 border border-white/10 cursor-pointer transition-all duration-300 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(239,0,219,0.3)]">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"
+                        style="background-image: radial-gradient(#ef00db 1px, transparent 1px); background-size: 15px 15px;">
+                    </div>
+                    <img src="src/Imagenes/dota2cup.png"
+                        class="absolute inset-0 h-full w-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" />
+                    <div
+                        class="relative z-20 h-full flex flex-col justify-end p-8 bg-gradient-to-t from-black via-transparent">
+                        <span
+                            class="inline-block w-fit px-3 py-1 rounded-full bg-fuchsia-600 text-[10px] font-bold text-white mb-3">PRÓXIMAMENTE</span>
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter">dota 2 World Cup -
+                            Riyadh
+                        </h3>
+                        <p class="text-gray-300 text-base">7 al 18 de julio de 2026.</p>
+                    </div>
+                    <a href="https://esportsworldcup.com/en/competitions/2026/dota2" class="absolute inset-0 z-20"></a>
+                </div>
+
             </div>
         </div>
-    </div>
-
+    </section>
+  
     <script>
 
         /* Script para el efecto de swap de tarjetas se puede modificar el diseño y las animaciones también se pueden 
