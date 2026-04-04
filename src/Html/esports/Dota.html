@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Competitiva - Dota 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+    <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-yellow-400">Historia Competitiva - Counter-Strike</h1>
+            <nav aria-label="Global"
+                class="mx-auto flex w-full max-w-7xl items-center justify-between px-10 py-4 
+        bg-purple-900/60 backdrop-blur-md border border-fuchsia-500/30 rounded-full shadow-2xl transition-all duration-300">
+
+                <div class="flex flex-1">
+                    <a href="../../../index.html"
+                        class="flex items-center gap-1 transition-transform hover:scale-105 active:scale-95">
+                        <span class="sr-only">Nexos</span>
+                        <img src="../Imagenes/logo.png" alt="Logo Nexos" class="h-12 w-auto object-contain" />
+                        <p class="text-2xl font-bold text-white tracking-wider">Nexos</p>
+                    </a>
+                </div>
+
+                <div id="nav-links" class="flex items-center gap-6 lg:gap-x-10">
+                    <a href="../../../index.html"
+                        class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+                        Inicio
+                        <span
+                            class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="../Juegos.html"
+                        class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+                        Juegos
+                        <span
+                            class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="../comparar.html"
+                        class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+                        Comparación
+                        <span
+                            class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="../e-sports.html"
+                        class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+                        Esports
+                        <span
+                            class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="../foro.html"
+                        class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+                        Foro
+                        <span
+                            class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+            </nav>
+
+            <style>
+                @keyframes nexos-pulse {
+                    0% {
+                        box-shadow: 0 0 0 0 rgba(212, 126, 252, 0.7);
+                    }
+
+                    70% {
+                        box-shadow: 0 0 0 15px rgba(212, 126, 252, 0);
+                    }
+
+                    100% {
+                        box-shadow: 0 0 0 0 rgba(212, 126, 252, 0);
+                    }
+                }
+
+                .click-pulse {
+                    animation: nexos-pulse 0.5s ease-out;
+                }
+
+                .active-link {
+                    color: #d47efc !important;
+                }
+
+                .active-underline {
+                    width: 100% !important;
+                }
+            </style>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const navItems = document.querySelectorAll('.nav-item');
+                    // Normalizamos la URL actual para comparar
+                    const currentUrl = window.location.href.toLowerCase();
+
+                    navItems.forEach(item => {
+                        const href = item.getAttribute('href').toLowerCase();
+
+                        // Verificamos si la URL actual contiene el nombre del archivo del link
+                        if (currentUrl.includes(href) || (currentUrl.endsWith('/') && href.includes('index.html'))) {
+                            item.classList.add('active-link');
+                            const underline = item.querySelector('span');
+                            if (underline) underline.classList.add('active-underline');
+                        }
+
+                        item.addEventListener('click', function (e) {
+                            // Animación antes de que cambie la página
+                            this.classList.add('click-pulse');
+                        });
+                    });
+                });
+            </script>
+        </div>
+    </header>
+    <main class="max-w-5xl mx-auto py-10 px-6 space-y-12">
+        <section class="text-center">
+            <h2 class="text-3xl font-bold text-yellow-400 mb-4">El Nacimiento del Mito</h2>
+            <p class="text-gray-300 leading-relaxed">
+                Dota 2 nació como la evolución del popular mod de Warcraft III, Defense of the Ancients. En 2011, Valve
+                lanzó oficialmente el juego junto al primer torneo mundial: <span class="text-yellow-400 font-bold">The
+                    International</span>, con un premio sin precedentes de 1.6 millones de dólares, marcando el inicio
+                de una era en los eSports.
+            </p>
+        </section>
+
+        <!-- The International 2011 -->
+        <section class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+            <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/international2011/tournament_logo.png"
+                alt="The International 2011" class="rounded-lg mb-4 mx-auto">
+            <h2 class="text-2xl font-semibold text-red-400 mb-4">2011 - El Comienzo: Natus Vincere</h2>
+            <p class="text-gray-300">El primer <span class="text-yellow-400 font-bold">The International</span> se
+                celebró en Colonia, Alemania. <span class="text-yellow-400 font-bold">Natus Vincere (Na’Vi)</span>,
+                liderado por Dendi, se coronó campeón y se convirtió en leyenda del Dota competitivo.</p>
+        </section>
+
+        <!-- The International 2013 -->
+        <section class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+            <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/blog/images/international2013_logo.png"
+                alt="The International 2013" class="rounded-lg mb-4 mx-auto">
+            <h2 class="text-2xl font-semibold text-red-400 mb-4">2013 - La Era de Alliance</h2>
+            <p class="text-gray-300"><span class="text-yellow-400 font-bold">Alliance</span> protagonizó una de las
+                finales más memorables contra Na’Vi, con jugadas icónicas como “The Million Dollar Dream Coil”. Fue un
+                símbolo del crecimiento estratégico y técnico de Dota 2.</p>
+        </section>
+
+        <!-- The International 2018 -->
+        <section class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+            <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/blog/images/international2018_logo.png"
+                alt="The International 2018" class="rounded-lg mb-4 mx-auto">
+            <h2 class="text-2xl font-semibold text-red-400 mb-4">2018 - OG y la historia imposible</h2>
+            <p class="text-gray-300">El equipo <span class="text-yellow-400 font-bold">OG</span> hizo historia al ganar
+                The International 2018 después de clasificarse desde las eliminatorias abiertas. Su triunfo, liderado
+                por <span class="italic">N0tail</span> y <span class="italic">ana</span>, fue considerado un milagro
+                competitivo.</p>
+        </section>
+
+        <!-- The International 2019 -->
+        <section class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+            <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/blog/images/international2019_logo.png"
+                alt="The International 2019" class="rounded-lg mb-4 mx-auto">
+            <h2 class="text-2xl font-semibold text-red-400 mb-4">2019 - OG repite la hazaña</h2>
+            <p class="text-gray-300"><span class="text-yellow-400 font-bold">OG</span> se convirtió en el primer equipo
+                en la historia en ganar dos The International consecutivos, consolidando su legado como el equipo más
+                dominante de todos los tiempos en Dota 2.</p>
+        </section>
+
+        <!-- The International 2021 -->
+        <section class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+            <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/blog/images/international2021_logo.png"
+                alt="The International 2021" class="rounded-lg mb-4 mx-auto">
+            <h2 class="text-2xl font-semibold text-red-400 mb-4">2021 - Team Spirit y el regreso del CIS</h2>
+            <p class="text-gray-300">El joven equipo <span class="text-yellow-400 font-bold">Team Spirit</span>
+                sorprendió al mundo derrotando a PSG.LGD. Este triunfo revivió la gloria de la región CIS y demostró que
+                las nuevas generaciones también podían alcanzar la cima.</p>
+        </section>
+
+        <!-- Legado -->
+        <section class="text-center">
+            <h2 class="text-3xl font-bold text-yellow-400 mb-4">El Legado de The International</h2>
+            <p class="text-gray-300 leading-relaxed">
+                The International no es solo un torneo, es una celebración de la comunidad de Dota 2. Cada edición reúne
+                a millones de fanáticos y redefine los límites de la competencia, la estrategia y la emoción en los
+                eSports.
+            </p>
+        </section>
+    </main>
+</body>
+
+<footer class="bg-gray-900 border-t border-fuchsia-300/30">
+    <div class="mx-auto max-w-7xl px-6 py-8 sm:px-6 lg:px-8 ">
+        <div class="flex items-center justify-between">
+
+            <p class="text-sm leading-5 text-gray-400">
+                &copy; 2026 Nexos, Inc. All rights reserved.
+            </p>
+
+            <div class="flex items-center space-x-6">
+                <a href="https://github.com/MateoLMR/Proyecto_nexos" target="_blank"
+                    class="text-gray-400 hover:text-white transition-colors">
+                    <span class="sr-only">Github</span>
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.82 1.102.82 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

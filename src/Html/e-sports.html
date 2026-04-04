@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexos</title>
-    <link rel="icon" href="../Imagenes/logo.png" type="image/png">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Historia de los E-sports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
     <nav aria-label="Global"
@@ -109,123 +108,69 @@
     </script>
 </header>
 
-<body class="bg-gray-900 overflow-x-hidden min-h-screen">
-    <main class="mx-auto max-w-7xl px-6 lg:px-8 py-45">
-        <!-- Diseño principal de la seccion de detalle del juego -->
-        <div class="flex flex-col lg:flex-row lg:gap-8">
-            <div class="w-full lg:w-4/6 mb-8 lg:mb-0">
-                <div id="main-media-container"
-                    class="relative overflow-hidden aspect-[16/9] rounded-xl bg-gray-800 shadow-2xl">
-                    <h1 class="text-white text-xl p-4">Cargando media...</h1>
-                </div>
-                <div id="miniaturas-container" class="flex space-x-2 mt-3 overflow-x-auto pb-2">
-                </div>
+<body class="bg-[#0f0b1b] text-white font-sans">
+
+    <!-- Contenedor principal -->
+    <div class="max-w-4xl mx-auto px-6 py-10">
+
+        <!-- Título -->
+        <h1 class="text-4xl font-bold mb-4">Historia de los<br>E-sports</h1>
+
+        <!-- Introducción -->
+        <h2 class="text-xl font-semibold mb-2">Introducción</h2>
+        <p class="text-gray-300 leading-relaxed mb-8">
+            Los deportes electrónicos, conocidos como E-sports, se han convertido en un fenómeno global que
+            trasciende el entretenimiento para posicionarse como una industria multimillonaria. Desde los primeros
+            torneos locales en la década de 1980 hasta las competiciones internacionales con millones de espectadores,
+            los E-sports han transformado la forma en que las personas interactúan con los videojuegos.
+        </p>
+
+        <!-- Sección de tarjetas -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            <!-- Tarjeta 1 -->
+            <div
+                class="bg-[#a53d3d] rounded-2xl p-4 flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform">
+                <a href="/src/Html/esports/league.html">
+                    <img src="https://i.scdn.co/image/ab6761610000e5ebe80d1ffb81aa6503ad41c574" alt="League of Legends"
+                        class="w-24 h-24 object-contain mb-2">
+                    <p class="font-semibold">Historia de los E-sports</p>
+                </a>
             </div>
-            <div id="detalle-juego" class="w-full lg:w-2/6 text-white">
-                <h1 class="text-4xl">Cargando...</h1>
+
+
+            <!-- Tarjeta 2 -->
+            <div
+                class="bg-[#4b3fa8] rounded-2xl p-4 flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform">
+                <a href="/src/Html/esports/counter.html">
+                    <img src="https://images.seeklogo.com/logo-png/34/1/csgo-logo-png_seeklogo-340260.png"
+                        alt="Counter Strike" class="w-24 h-24 object-contain mb-2">
+                    <p class="font-semibold">Evolución de los torneos</p>
+                </a>
             </div>
+
+            <!-- Tarjeta 3 -->
+            <div
+                class="bg-[#1a1a1a] rounded-2xl p-4 flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform">
+                <a href="/src/Html/esports/Dota.html">
+                    <img src="https://images.seeklogo.com/logo-png/28/1/dota-2-logo-png_seeklogo-284923.png"
+                        alt="Dota 2" class="w-24 h-24 object-contain mb-2">
+                    <p class="font-semibold">Dota 2</p>
+                </a>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div
+                class="bg-[#1b2735] rounded-2xl p-4 flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform">
+                <a href="/src/Html/esports/overwacho.html">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Overwatch_circle_logo.svg"
+                        alt="Overwatch" class="w-24 h-24 object-contain mb-2">
+                    <p class="font-semibold">Overwatch</p>
+                </a>
+            </div>
+
         </div>
-    </main>
-
-    <!-- Modal para mostrar imagen ampliada -->
-    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999] hidden"
-        onclick="closeModal()">
-        <img id="modal-image" src="" alt="Imagen ampliada del juego"
-            class="w-full h-full max-w-[70%] max-h-[70%] rounded-xl shadow-2xl cursor-pointer"
-            onclick="event.stopPropagation()">
-        <button class="absolute top-4 right-4 text-white text-4xl font-light hover:text-fuchsia-400"
-            onclick="closeModal()">
-            &times;
-        </button>
     </div>
-    <!-- Llamada al js de detalle-juegos para la funcionalidad de cargar el detalle del juego -->
-    <script src="../JS/detalle-juegos.js"></script>
-    <!-- Script para la funcionalidad de cambiar media principal, navegar con teclas y abrir/cerrar modal -->
-    <script>
-        let currentGameId = null;
-        let currentIndex = 0;
-        function openModal(imageSrc) {
-            const modal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
-            modalImage.src = imageSrc;
-            modal.classList.remove('hidden');
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('image-modal');
-            modal.classList.add('hidden');
-        }
-
-        function changeMainMedia(type, source, index) {
-            const container = document.getElementById('main-media-container');
-            container.innerHTML = '';
-
-            currentIndex = index;
-
-            if (type === 'video') {
-                const videoHTML = `
-                <video controls autoplay class="w-full h-full object-cover">
-                    <source src="${source}" type="video/mp4">
-                    Tu navegador no soporta el tag de video.
-                </video>
-            `;
-                container.innerHTML = videoHTML;
-            } else if (type === 'image') {
-                const imageHTML = `
-               <img src="${source}" alt="Contenido del Juego" class="w-full h-full object-cover cursor-pointer" 
-               onclick="openModal('${source}')" />
-            `;
-                container.innerHTML = imageHTML;
-            }
-            updateActiveThumbnail(index);
-        }
-        // Funcion para resaltar la miniatura activa
-        function updateActiveThumbnail(activeIndex) {
-            const thumbnails = document.querySelectorAll('#miniaturas-container button');
-            thumbnails.forEach((button, index) => {
-                if (index === activeIndex) {
-                    button.classList.add('border-fuchsia-500');
-                    button.classList.remove('border-transparent');
-                    button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                } else {
-                    button.classList.remove('border-fuchsia-500');
-                    button.classList.add('border-transparent');
-                }
-            });
-        }
-        // Funcion para navegar por la galeria con las flechas izquierda y derecha
-        function navigateGallery(direction) {
-            const juego = dataJuegos[currentGameId];
-            if (!juego || !juego.galeria) return;
-
-            const gallerySize = juego.galeria.length;
-            const newIndex = (currentIndex + direction + gallerySize) % gallerySize;
-
-            const newMedia = juego.galeria[newIndex];
-            changeMainMedia(newMedia.tipo, newMedia.src, newIndex);
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            if (typeof cargarDetalleJuego === 'function') {
-                const params = new URLSearchParams(window.location.search);
-                currentGameId = params.get("id");
-
-                cargarDetalleJuego();
-            }
-            //  Agregar listener para las teclas de flecha
-            document.addEventListener('keydown', (e) => {
-                if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
-                    return;
-                }
-
-                if (e.key === 'ArrowLeft') {
-                    navigateGallery(-1);
-                } else if (e.key === 'ArrowRight') {
-                    navigateGallery(1);
-                }
-            });
-        });
-    </script>
 
 </body>
 

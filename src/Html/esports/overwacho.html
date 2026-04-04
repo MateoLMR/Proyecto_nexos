@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Historia Competitiva - Overwatch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-yellow-400">Historia Competitiva - Counter-Strike</h1>
+      <nav aria-label="Global"
+        class="mx-auto flex w-full max-w-7xl items-center justify-between px-10 py-4 
+        bg-purple-900/60 backdrop-blur-md border border-fuchsia-500/30 rounded-full shadow-2xl transition-all duration-300">
+
+        <div class="flex flex-1">
+          <a href="../../../index.html"
+            class="flex items-center gap-1 transition-transform hover:scale-105 active:scale-95">
+            <span class="sr-only">Nexos</span>
+            <img src="../Imagenes/logo.png" alt="Logo Nexos" class="h-12 w-auto object-contain" />
+            <p class="text-2xl font-bold text-white tracking-wider">Nexos</p>
+          </a>
+        </div>
+
+        <div id="nav-links" class="flex items-center gap-6 lg:gap-x-10">
+          <a href="../../../index.html"
+            class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+            Inicio
+            <span
+              class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="../Juegos.html"
+            class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+            Juegos
+            <span
+              class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="../comparar.html"
+            class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+            Comparación
+            <span
+              class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="../e-sports.html"
+            class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+            Esports
+            <span
+              class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="../foro.html"
+            class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+            Foro
+            <span
+              class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </div>
+      </nav>
+
+      <style>
+        @keyframes nexos-pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(212, 126, 252, 0.7);
+          }
+
+          70% {
+            box-shadow: 0 0 0 15px rgba(212, 126, 252, 0);
+          }
+
+          100% {
+            box-shadow: 0 0 0 0 rgba(212, 126, 252, 0);
+          }
+        }
+
+        .click-pulse {
+          animation: nexos-pulse 0.5s ease-out;
+        }
+
+        .active-link {
+          color: #d47efc !important;
+        }
+
+        .active-underline {
+          width: 100% !important;
+        }
+      </style>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const navItems = document.querySelectorAll('.nav-item');
+          // Normalizamos la URL actual para comparar
+          const currentUrl = window.location.href.toLowerCase();
+
+          navItems.forEach(item => {
+            const href = item.getAttribute('href').toLowerCase();
+
+            // Verificamos si la URL actual contiene el nombre del archivo del link
+            if (currentUrl.includes(href) || (currentUrl.endsWith('/') && href.includes('index.html'))) {
+              item.classList.add('active-link');
+              const underline = item.querySelector('span');
+              if (underline) underline.classList.add('active-underline');
+            }
+
+            item.addEventListener('click', function (e) {
+              // Animación antes de que cambie la página
+              this.classList.add('click-pulse');
+            });
+          });
+        });
+      </script>
+    </div>
+  </header>
+  <!-- Hero con imagen -->
+  <section class="relative">
+    <div class="h-80 bg-cover bg-center" style="background-image:url('images/overwatch-hero.jpg')">
+      <div class="h-80 bg-black/40 flex items-center justify-center">
+        <div class="text-center px-6">
+          <h2 class="text-4xl font-bold text-yellow-300">El legado competitivo de Overwatch</h2>
+          <p class="mt-3 text-gray-200 max-w-2xl mx-auto">Ligas, jugadores y momentos que definieron el shooter por
+            equipos de Blizzard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-6xl mx-auto py-10 px-6 space-y-12">
+
+    <!-- Introducción -->
+    <section class="text-center">
+      <h2 class="text-3xl font-bold text-yellow-400 mb-4">El Nacimiento del Competitivo</h2>
+      <p class="text-gray-300 leading-relaxed max-w-3xl mx-auto">
+        Desde 2016 Overwatch impulsó una escena competitiva basada en héroes, roles y coordinación. Aquí están los hitos
+        y las caras más reconocibles del competitivo.
+      </p>
+    </section>
+
+    <!-- Timeline + imagen secundaria -->
+    <section class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="space-y-6">
+        <article class="bg-gray-800 p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-semibold text-yellow-400">2018 - Nace la Overwatch League</h3>
+          <p class="mt-2 text-gray-300">La OWL inauguró un formato por franquicias basado en ciudades con inversión y
+            estructura profesional.</p>
+        </article>
+
+        <article class="bg-gray-800 p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-semibold text-yellow-400">2019 - San Francisco Shock</h3>
+          <p class="mt-2 text-gray-300">San Francisco Shock se alzó como una dinastía gracias a su coordinación y
+            profundidad de plantilla.</p>
+        </article>
+      </div>
+
+      <div class="rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-black/30 to-black/10">
+        <img src="images/owl-arena.jpg" alt="OWL Arena" class="w-full h-64 object-cover">
+        <div class="p-4">
+          <p class="text-sm text-gray-300">Audiencias en vivo y producciones televisivas llevaron la OWL a estadios y
+            televisores.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Momentos icónicos con thumbnails (poster) -->
+    <section>
+      <h3 class="text-3xl font-semibold text-yellow-400 mb-6">Momentos icónicos (clips)</h3>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Clip 1 -->
+        <div class="bg-gray-800 p-4 rounded-xl shadow">
+          <video controls poster="images/clip1-poster.jpg" class="w-full rounded-lg">
+            <source src="clips/2018_shock_final.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+          </video>
+          <h4 class="mt-3 font-bold text-white">Final OWL 2019 - Shock Show</h4>
+          <p class="text-sm text-gray-400">Jugadas clave que definieron el campeonato.</p>
+        </div>
+
+        <!-- Clip 2 -->
+        <div class="bg-gray-800 p-4 rounded-xl shadow">
+          <video controls poster="images/clip2-poster.jpg" class="w-full rounded-lg">
+            <source src="clips/2019_sinatraa_play.mp4" type="video/mp4">
+          </video>
+          <h4 class="mt-3 font-bold text-white">Jugadas destacadas de Sinatraa</h4>
+          <p class="text-sm text-gray-400">Impacto individual en partidas decisivas.</p>
+        </div>
+
+        <!-- Clip 3 -->
+        <div class="bg-gray-800 p-4 rounded-xl shadow">
+          <video controls poster="images/clip3-poster.jpg" class="w-full rounded-lg">
+            <source src="clips/2022_overwatch2_transition.mp4" type="video/mp4">
+          </video>
+          <h4 class="mt-3 font-bold text-white">Transición a Overwatch 2 (5v5)</h4>
+          <p class="text-sm text-gray-400">Cómo cambió el meta y las estrategias globales.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jugadores destacados con imágenes -->
+    <section>
+      <h3 class="text-3xl font-semibold text-yellow-400 mb-6">Jugadores destacados</h3>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-gray-800 p-4 rounded-xl text-center">
+          <img src="images/sinatraa.jpg" alt="Sinatraa" class="w-full h-40 object-cover rounded-lg mb-3">
+          <p class="font-bold text-yellow-300">Sinatraa</p>
+          <p class="text-sm text-gray-400">MVP y figura clave en la era temprana de la OWL.</p>
+        </div>
+
+        <div class="bg-gray-800 p-4 rounded-xl text-center">
+          <img src="images/leaf.jpg" alt="Leaf" class="w-full h-40 object-cover rounded-lg mb-3">
+          <p class="font-bold text-yellow-300">Leaf</p>
+          <p class="text-sm text-gray-400">Flex support conocido por su versatilidad.</p>
+        </div>
+
+        <div class="bg-gray-800 p-4 rounded-xl text-center">
+          <img src="images/super.jpg" alt="Super" class="w-full h-40 object-cover rounded-lg mb-3">
+          <p class="font-bold text-yellow-300">Super</p>
+          <p class="text-sm text-gray-400">Tank con gran liderazgo en finales.</p>
+        </div>
+
+        <div class="bg-gray-800 p-4 rounded-xl text-center">
+          <img src="images/striker.jpg" alt="Striker" class="w-full h-40 object-cover rounded-lg mb-3">
+          <p class="font-bold text-yellow-300">Striker</p>
+          <p class="text-sm text-gray-400">DPS letal en etapas decisivas del torneo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recursos / Enlaces -->
+    <section class="text-center">
+      <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Recursos y VODs</h3>
+      <p class="text-gray-300 mb-4">Si quieres los VODs originales o miniaturas optimizadas, puedo ayudarte a
+        integrarlos correctamente.</p>
+      <div class="flex justify-center gap-4">
+        <a href="#" class="px-4 py-2 rounded bg-yellow-400 text-black font-semibold">Descargar assets (ej.)</a>
+        <a href="#" class="px-4 py-2 rounded border border-yellow-400 text-yellow-400">Ver más VODs</a>
+      </div>
+    </section>
+
+  </main>
+</body>
+
+<footer class="bg-gray-900 border-t border-fuchsia-300/30">
+  <div class="mx-auto max-w-7xl px-6 py-8 sm:px-6 lg:px-8 ">
+    <div class="flex items-center justify-between">
+
+      <p class="text-sm leading-5 text-gray-400">
+        &copy; 2026 Nexos, Inc. All rights reserved.
+      </p>
+
+      <div class="flex items-center space-x-6">
+        <a href="https://github.com/MateoLMR/Proyecto_nexos" target="_blank"
+          class="text-gray-400 hover:text-white transition-colors">
+          <span class="sr-only">Github</span>
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.82 1.102.82 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</html>

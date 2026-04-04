@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historia Competitiva - Counter-Strike</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-yellow-400">Historia Competitiva - Counter-Strike</h1>
+      <nav aria-label="Global"
+        class="mx-auto flex w-full max-w-7xl items-center justify-between px-10 py-4 
+        bg-purple-900/60 backdrop-blur-md border border-fuchsia-500/30 rounded-full shadow-2xl transition-all duration-300">
+
+        <div class="flex flex-1">
+          <a href="../../index.html"
+            class="flex items-center gap-1 transition-transform hover:scale-105 active:scale-95">
+            <span class="sr-only">Nexos</span>
+            <img src="../Imagenes/logo.png" alt="Logo Nexos" class="h-12 w-auto object-contain" />
+            <p class="text-2xl font-bold text-white tracking-wider">Nexos</p>
+          </a>
+        </div>
+
+        <div id="nav-links" class="flex items-center gap-6 lg:gap-x-10">
+          <a href="../../../index.html"
+            class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+            Inicio
+            <span
+              class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="../Juegos.html"
+            class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+            Juegos
+            <span
+              class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="../comparar.html"
+            class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+            Comparación
+            <span
+              class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="../e-sports.html"
+            class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+            Esports
+            <span
+              class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="../foro.html"
+            class="nav-item group relative text-[20px] font-semibold leading-6 text-white transition-all hover:text-fuchsia-300">
+            Foro
+            <span
+              class="absolute -bottom-1 left-0 h-0.5 w-0 bg-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </div>
+      </nav>
+
+      <style>
+        @keyframes nexos-pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(212, 126, 252, 0.7);
+          }
+
+          70% {
+            box-shadow: 0 0 0 15px rgba(212, 126, 252, 0);
+          }
+
+          100% {
+            box-shadow: 0 0 0 0 rgba(212, 126, 252, 0);
+          }
+        }
+
+        .click-pulse {
+          animation: nexos-pulse 0.5s ease-out;
+        }
+
+        .active-link {
+          color: #d47efc !important;
+        }
+
+        .active-underline {
+          width: 100% !important;
+        }
+      </style>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const navItems = document.querySelectorAll('.nav-item');
+          // Normalizamos la URL actual para comparar
+          const currentUrl = window.location.href.toLowerCase();
+
+          navItems.forEach(item => {
+            const href = item.getAttribute('href').toLowerCase();
+
+            // Verificamos si la URL actual contiene el nombre del archivo del link
+            if (currentUrl.includes(href) || (currentUrl.endsWith('/') && href.includes('index.html'))) {
+              item.classList.add('active-link');
+              const underline = item.querySelector('span');
+              if (underline) underline.classList.add('active-underline');
+            }
+
+            item.addEventListener('click', function (e) {
+              // Animación antes de que cambie la página
+              this.classList.add('click-pulse');
+            });
+          });
+        });
+      </script>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section
+    class="relative bg-[url('https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg')] bg-cover bg-center h-96 flex items-center justify-center">
+    <div class="bg-black bg-opacity-70 p-8 rounded-lg text-center">
+      <h2 class="text-4xl font-bold text-yellow-400 mb-4">El legado del Counter-Strike competitivo</h2>
+      <p class="text-gray-200 max-w-2xl mx-auto">Desde los días del CS 1.6 hasta CS2, Counter-Strike ha definido el FPS
+        competitivo con estrategias, reflejos y pasión a nivel global.</p>
+    </div>
+  </section>
+
+  <!-- Inicios -->
+  <section id="inicios" class="max-w-5xl mx-auto py-16 px-6">
+    <h3 class="text-3xl font-semibold text-yellow-400 mb-6">Los inicios del competitivo</h3>
+    <p class="text-gray-300 leading-relaxed mb-4">
+      Counter-Strike nació como un mod de Half-Life en 1999, y rápidamente se convirtió en un fenómeno en los cibercafés
+      del mundo.
+      Torneos locales dieron paso a competencias internacionales como la CPL y WCG, donde jugadores legendarios
+      empezaron a destacar.
+    </p>
+    <p class="text-gray-300 leading-relaxed">
+      En la era de **CS 1.6**, equipos como *NiP*, *SK Gaming* y *mTw* dominaron la escena. Fue el nacimiento del juego
+      táctico y de las primeras leyendas del FPS.
+    </p>
+  </section>
+
+  <!-- Momentos Icónicos -->
+  <section id="momentos" class="bg-gray-800 py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-semibold text-yellow-400 mb-10 text-center">Momentos Icónicos de los Mundiales</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <h4 class="text-xl font-bold mb-2">Olof "Olofmeister" – La famosa defuse en el fuego</h4>
+          <video class="w-full rounded-lg mt-2" controls>
+            <source src="https://cdn.cloudflare.steamstatic.com/apps/csgo/videos/olof-defuse.mp4" type="video/mp4">
+          </video>
+          <p class="mt-2 text-gray-400 text-sm">ESL One Cologne 2014 – Fnatic vence a Dignitas en un momento que pasó a
+            la historia.</p>
+        </div>
+
+        <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <h4 class="text-xl font-bold mb-2">Coldzera – Cuatro kills con la AWP</h4>
+          <video class="w-full rounded-lg mt-2" controls>
+            <source src="https://cdn.cloudflare.steamstatic.com/apps/csgo/videos/coldzera-awp.mp4" type="video/mp4">
+          </video>
+          <p class="mt-2 text-gray-400 text-sm">MLG Columbus 2016 – El salto de Coldzera contra Liquid cambió la
+            historia de Luminosity Gaming.</p>
+        </div>
+
+        <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <h4 class="text-xl font-bold mb-2">s1mple – El prodigio ucraniano</h4>
+          <video class="w-full rounded-lg mt-2" controls>
+            <source src="https://cdn.cloudflare.steamstatic.com/apps/csgo/videos/s1mple-miracle.mp4" type="video/mp4">
+          </video>
+          <p class="mt-2 text-gray-400 text-sm">ESL One Cologne 2016 – Dos no-scope con la AWP marcaron el inicio de una
+            nueva era.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jugadores destacados -->
+  <section id="jugadores" class="max-w-6xl mx-auto py-16 px-6">
+    <h3 class="text-3xl font-semibold text-yellow-400 mb-8 text-center">Jugadores Legendarios</h3>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-gray-800 p-6 rounded-xl text-center hover:scale-105 transform transition">
+        <img src="https://static.hltv.org/images/playerprofile/bodyshot/comms/7998.webp" alt="f0rest"
+          class="w-32 h-32 rounded-full mx-auto mb-4">
+        <h4 class="text-xl font-bold">f0rest</h4>
+        <p class="text-gray-400 text-sm">Un ícono de NiP y una leyenda desde 1.6 hasta CS:GO.</p>
+      </div>
+
+      <div class="bg-gray-800 p-6 rounded-xl text-center hover:scale-105 transform transition">
+        <img src="https://static.hltv.org/images/playerprofile/bodyshot/comms/7994.webp" alt="s1mple"
+          class="w-32 h-32 rounded-full mx-auto mb-4">
+        <h4 class="text-xl font-bold">s1mple</h4>
+        <p class="text-gray-400 text-sm">Considerado el mejor jugador de la historia, su dominio con la AWP es
+          incomparable.</p>
+      </div>
+
+      <div class="bg-gray-800 p-6 rounded-xl text-center hover:scale-105 transform transition">
+        <img src="https://static.hltv.org/images/playerprofile/bodyshot/comms/7996.webp" alt="device"
+          class="w-32 h-32 rounded-full mx-auto mb-4">
+        <h4 class="text-xl font-bold">device</h4>
+        <p class="text-gray-400 text-sm">Parte esencial del dominio de Astralis durante 2018-2020.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos -->
+  <section id="videos" class="bg-gray-800 py-16">
+    <div class="max-w-5xl mx-auto text-center px-6">
+      <h3 class="text-3xl font-semibold text-yellow-400 mb-6">Revive los mejores momentos</h3>
+      <iframe class="w-full h-96 rounded-lg shadow-lg" src="https://www.youtube.com/embed/9WbCfHutDSE"
+        title="Counter-Strike Major Moments" allowfullscreen></iframe>
+    </div>
+  </section>
+</body>
+
+<footer class="bg-gray-900 border-t border-fuchsia-300/30">
+  <div class="mx-auto max-w-7xl px-6 py-8 sm:px-6 lg:px-8 ">
+    <div class="flex items-center justify-between">
+
+      <p class="text-sm leading-5 text-gray-400">
+        &copy; 2026 Nexos, Inc. All rights reserved.
+      </p>
+
+      <div class="flex items-center space-x-6">
+        <a href="https://github.com/MateoLMR/Proyecto_nexos" target="_blank"
+          class="text-gray-400 hover:text-white transition-colors">
+          <span class="sr-only">Github</span>
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.82 1.102.82 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</html>
