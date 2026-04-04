@@ -21,7 +21,7 @@ const CREATORS = [
     accent: "#38BDF8",
     badge: "Founder",
     stat1: { label: "Horas de trabajo", value: "100+" },
-    stat2: { label: "Avance del proyecto", value: "50%" },
+    stat2: { label: "Avance del proyecto", value: "65%" },
   },
   {
     name: "Nicolas Foglea",
