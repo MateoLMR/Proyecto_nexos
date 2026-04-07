@@ -219,26 +219,12 @@
             opacity: 1;
         }
 
-        /* Badge de tipo (Actual / Antiguo) sobre la imagen */
-        .tipo-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            z-index: 2;
-            padding: 3px 12px;
-            border-radius: 9999px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .tipo-actual {
+        .tipo-Estrategia {
             background: rgba(168, 85, 247, 0.85);
             color: #fff;
         }
 
-        .tipo-antiguo {
+        .tipo-RPG {
             background: rgba(107, 33, 168, 0.7);
             color: #d8b4fe;
         }
@@ -524,19 +510,19 @@
                     autocomplete="off">
             </div>
 
-            <!-- Filtros por tipo (Todos / Actuales / Antiguos) -->
+            <!-- Filtros por tipo  -->
             <div class="flex gap-2 flex-wrap">
                 <button id="filter-todos" onclick="filtrarJuegos('todos')"
                     class="filter-btn px-10 py-2 rounded-full text-1xl font-semibold text-white bg-fuchsia-600 hover:bg-fuchsia-700 transition-colors">
                     Todos
                 </button>
-                <button id="filter-actual" onclick="filtrarJuegos('actual')"
+                <button id="filter-Estrategia" onclick="filtrarJuegos('Estrategia')"
                     class="filter-btn px-10 py-2 rounded-full text-1xl font-semibold text-fuchsia-300 bg-gray-800 hover:bg-gray-700 transition-colors">
-                    Actuales
+                    Estrategia
                 </button>
-                <button id="filter-antiguo" onclick="filtrarJuegos('antiguo')"
+                <button id="filter-RPG" onclick="filtrarJuegos('RPG')"
                     class="filter-btn px-10 py-2 rounded-full text-1xl font-semibold text-fuchsia-300 bg-gray-800 hover:bg-gray-700 transition-colors">
-                    Antiguos
+                    RPG
                 </button>
             </div>
 

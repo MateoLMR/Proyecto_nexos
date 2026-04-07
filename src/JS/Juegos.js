@@ -14,63 +14,63 @@ const juegos = [
         titulo: "Crusader Kings III",
         descripcion: "Estrategia dinástica medieval. Gestiona tu linaje, forma alianzas y conquista reinos a través de generaciones.",
         imagen: "../Imagenes-juegos/Crusadersking3/Imagen-juego-1.png",
-        tipo: "actual"
+        tipo: "Estrategia"
     },
     {
         id: "cv1",
         titulo: "Civilization 1991",
         descripcion: "Estrategia 4X que fundó el género. Lidera una civilización desde la prehistoria hasta el espacio.",
         imagen: "../Imagenes/civilization1991.png",
-        tipo: "antiguo"
+        tipo: "RPG"
     },
     {
         id: "wt2",
         titulo: "Warcraft II: Tides of Darkness",
         descripcion: "Solidificó el RTS con fantasía épica. Orcos contra Humanos en batallas en tiempo real.",
         imagen: "../Imagenes/warcraft2.png",
-        tipo: "antiguo"
+        tipo: "RPG"
     },
     {
         id: "hm3",
         titulo: "Heroes of Might and Magic III",
         descripcion: "Estrategia por turnos y combate táctico de fantasía. Construye tu castillo y lidera héroes.",
         imagen: "../Imagenes/heroes of magic.png",
-        tipo: "antiguo"
+        tipo: "RPG"
     },
     {
         id: "ag4",
         titulo: "Age of Empires IV",
         descripcion: "Estrategia en tiempo real histórica. Lidera civilizaciones a través de eras épicas.",
         imagen: "../Imagenes/ag.png",
-        tipo: "actual"
+        tipo: "Estrategia"
     },
     {
         id: "tw3",
         titulo: "Total War: Warhammer III",
         descripcion: "Estrategia masiva por turnos con batallas tácticas colosales en tiempo real.",
         imagen: "../Imagenes/tw.png",
-        tipo: "actual"
+        tipo: "Estrategia"
     },
     {
         id: "stB",
         titulo: "Starcraft: Brood War",
         descripcion: "El RTS competitivo por excelencia. Construye tu ejército y domina las microtácticas de batalla.",
         imagen: "../Imagenes/st.png",
-        tipo: "antiguo"
+        tipo: "RPG"
     },
     {
         id: "mnl",
         titulo: "Manor Lords",
         descripcion: "Constructor de ciudades medievales con batallas tácticas masivas y economía realista.",
         imagen: "../Imagenes/mnl.png",
-        tipo: "actual"
+        tipo: "Estrategia"
     },
     {
         id: "xc2",
         titulo: "Xcom 2",
         descripcion: "Líder del género táctico por turnos. Combate alienígena por escuadrones.",
         imagen: "../Imagenes/xc2.png",
-        tipo: "antiguo"
+        tipo: "RPG"
     },
 ];
 
@@ -128,10 +128,6 @@ function crearTarjetaGrid(juego) {
     enlace.href = `juego.html?id=${juego.id}`;
     enlace.className = "juego-card";
 
-    // Badge de tipo
-    const badge = document.createElement("span");
-
-
     // Overlay de color para el hover
     const overlay = document.createElement("div");
     overlay.className = "card-overlay";
@@ -162,7 +158,6 @@ function crearTarjetaGrid(juego) {
     footer.className = "card-footer";
     footer.innerHTML = `<span class="card-link">Ver detalles <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>`;
 
-    enlace.appendChild(badge);
     enlace.appendChild(overlay);
     enlace.appendChild(img);
     enlace.appendChild(body);
@@ -208,10 +203,6 @@ function crearTarjetaLista(juego) {
     const body = document.createElement("div");
     body.className = "lista-body";
 
-    const badge = document.createElement("span");
-    badge.className = `tipo-badge tipo-${juego.tipo}`;
-    badge.textContent = juego.tipo === "actual" ? "Actual" : "Antiguo";
-
     const titulo = document.createElement("h3");
     titulo.className = "lista-titulo";
     titulo.innerHTML = resaltarTexto(juego.titulo, busquedaActual);
@@ -220,7 +211,6 @@ function crearTarjetaLista(juego) {
     desc.className = "lista-desc";
     desc.textContent = juego.descripcion;
 
-    body.appendChild(badge);
     body.appendChild(titulo);
     body.appendChild(desc);
 
