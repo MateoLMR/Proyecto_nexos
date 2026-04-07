@@ -198,8 +198,8 @@
                                 Una exploracion a los juegos descubiertos por la comunidad esta semana.
                             </p>
                             <div class="mt-6 flex items-center gap-x-5">
-                                <p class="text-xl text-fuchsia-900/60 text-sm italic">
-                                    Exploralos ahora →
+                                <p class="text-xl text-fuchsia-600/80 text-sm italic">
+                                    Dale clic a las tarjetas para explorarlos →
                                 </p>
                             </div>
                         </div>
@@ -386,9 +386,39 @@
 
         <canvas id="nexos-lanyard-canvas"></canvas>
 
-        <div class="nexos-lanyards-hint">
-            <div class="drag-indicator"></div>
-        </div>
+        <div class="flex items-center gap-4 p-4 border border-white/5 rounded-xl bg-[#06060e]/50 max-w-sm mx-auto mt-2">
+    <svg class="h-8 w-8 shrink-0 mt-1" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="handGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur" />
+                <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
+
+        <path d="M16 40V12C16 10.8954 16.8954 10 18 10C19.1046 10 20 10.8954 20 12V24" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+        <path d="M20 24V14C20 12.8954 20.8954 12 22 12C23.1046 12 24 12.8954 24 14V24" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24 24V16C24 14.8954 24.8954 14 26 14C27.1046 14 28 14.8954 28 16V28" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+        <path d="M28 28V20C28 18.8954 28.8954 18 30 18C31.1046 18 32 18.8954 32 20V32" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+        
+        <path d="M16 32V42H36V28C36 26.3431 34.6569 25 33 25" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+
+        <path d="M16 28L8 22C6.5 21 6.5 19 8 18" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
+
+        <g filter="url(#handGlow)">
+            <path d="M16 12V32" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round"/>
+        </g>
+    </svg>
+
+    <div class="flex flex-col">
+        <p class="text-gray-300 font-semibold tracking-tight text-sm">
+            <span class="text-purple-400 font-bold uppercase tracking-wider text-xl block mb-1">Interacción:</span>
+            Arrastra para interactuar con las credenciales del equipo.
+        </p>
+    </div>
+</div>
     </section>
 
     <style>
@@ -499,6 +529,7 @@
             margin-top: -20px;
             cursor: grab;
         }
+
     </style>
 
     <script>
